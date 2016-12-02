@@ -1,0 +1,4 @@
+- Clients : Nom(TEXT), Prenom(TEXT), DateNaissance(DATE), Adresse(TEXT), NumTel(BIGINT), Mail(TEXT), Profession(TEXT), SituationFamiliale(TEXT), NSS(BIGINT), Solde(INT)
+- Actes : Intitule(TEXT), Categorie(TEXT), Prix(FLOAT), Consignes(TEXT)
+- Rendez-vous : Date(DATE), Heure(TIME), MedecinID(INT), ClientNSS(BIGINT), Paye(BOOLEAN), IntituleActe(TEXT)
+- Employes : ID(AutoIncremente), Login(TEXT), MDP(TEXT), Categorie(TEXT), Specialite(TEXT)
