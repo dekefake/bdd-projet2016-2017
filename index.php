@@ -1,37 +1,12 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-      <title>Ma page</title>
-      <meta charset="utf-8">
-	  <link rel="stylesheet"  href="style.css" />
-	  
-    </head>
-    
-	<body>
-	<h1>Bonjour et bienvenue sur le site de la clinique </h1>
-	<div>
-		<fieldset>
-			<form method="post" action="Login">
-			<p>
-	   			<label for ="Nom"> Nom: </label>
-	   			<input type="text" name="pseudo" id="name" />
-	   		</p>
-	   		<p>
-	   			<label for ="mdp"> Nom: </label>
-	   			<input type="password" name="MDP" id="motdepasse" />
-	   		</p>
-	   		<p>
-	   			<input type ="submit" value="Connexion" name="login" />
-	   			<input type ="reset" value="ToutEffacer" name ="f1" />
-			 </form>
-		</fieldset>
-
-		<?php 
-			require_once ('modele/connect.php');
-
-		?>
-
-
-	</body>
-
-</html>
+<?php require_once('controller/controller.php');
+try {
+	if(isset($_POST['submit']) && !empty($_POST['pseudo']) && !empty($_POST['motdepasse'])){
+		$user=$_POST['pseudo'];
+		$msg=$_POST['motdepasse'];
+		$categorie=recupererTypeEmploye(); // A ecrire
+	} else {
+		require_once('vue/gabarit.php');
+	}
+} catch(Exception $e){
+	$msg=$e->getMessage();
+}
