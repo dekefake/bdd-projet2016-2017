@@ -2,3 +2,27 @@
 - Actes : Intitule(TEXT), Categorie(TEXT), Prix(FLOAT), Consignes(TEXT)
 - Rendez-vous : Date(DATE), Heure(TIME), MedecinID(INT), ClientNSS(BIGINT), Paye(BOOLEAN), IntituleActe(TEXT)
 - Employes : ID(AutoIncremente), Login(TEXT), MDP(TEXT), Categorie(TEXT), Specialite(TEXT)
+
+
+On pourra lister ici les commandes SQL pour ajouter facilement des employés, clients, actes, rendez-vous au besoin. J'ai crée un Cardiologue et un Chirurgien.
+
+INSERT INTO `Employes` (`ID`, `Login`, `MDP`, `Categorie`, `Specialite`) VALUES (NULL, 'Durant', 'motdepassekikou', 'Medecin', 'Cardiologue'), (NULL, 'Faradet', 'jesaispasquoimettrecommemdp', 'Medecin', 'Chirurgien')
+
+
+
+
+
+Pour creer la table des clients :
+
+CREATE TABLE `mvcprojet`.`Clients` ( `Nom` TEXT NOT NULL , `Prenom` TEXT NOT NULL , `DateNaissance` DATE NOT NULL , `Adresse` TEXT NOT NULL , `NumTel` BIGINT NOT NULL , `Mail` TEXT NOT NULL , `Profession` TEXT NOT NULL , `SituationFamiliale` TEXT NOT NULL , `NSS` BIGINT NOT NULL , `Solde` INT NOT NULL , PRIMARY KEY (`NSS`)) ENGINE = InnoDB;
+
+
+
+
+
+
+Pour creer la table des actes :
+
+CREATE TABLE `mvcprojet`.`Actes` ( `Intitule` TEXT NOT NULL , `Categorie` TEXT NOT NULL , `Prix` FLOAT NOT NULL , `Consignes` TEXT NOT NULL ) ENGINE = InnoDB;
+
+
