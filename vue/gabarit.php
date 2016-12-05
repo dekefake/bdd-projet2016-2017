@@ -11,7 +11,7 @@
 	<h1>Bonjour et bienvenue sur le site de la clinique </h1>
 	<div>
 		<fieldset>
-			<form method="post" action="Login">
+			<form method="post" action="#">
 			<p>
 	   			<label for ="Nom"> Nom: </label>
 	   			<input type="text" name="pseudo" id="pseudo" />
@@ -21,13 +21,13 @@
 	   			<input type="password" name="motdepasse" id="motdepasse" />
 	   		</p>
 	   		<p>
-	   			<input type ="submit" value="Connexion" name="login" />
+	   			<input type ="submit" value="Connexion" name="submit" />
 	   			<input type ="reset" value="ToutEffacer" name ="f1" />
 			 </form>
 		</fieldset>
 
-		<?php 
-			echo "??";
+		<?php
+			echo $contenu; // ? 
 		?>
 
 
