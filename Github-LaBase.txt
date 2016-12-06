@@ -3,4 +3,4 @@ cd Projet-BDD
 #Tu peux faire tes modifs
 git add -A # Faut le faire pour que quand on commit ca prenne en compte les modifs
 git commit -m "MESSAGE DE COMMIT (supporte les emojis 😏)"
-giut push origin master # MASTER=branche ORIGIN=remote par défaut
+git push origin master # MASTER=branche ORIGIN=remote par défaut
