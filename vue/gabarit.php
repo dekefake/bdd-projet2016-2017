@@ -31,9 +31,10 @@
 			if (isset($_POST['submit'])){
 				$pseudo = $_POST['pseudo'];
 				$password = $_POST['password'];
-				$bonmotdepasse = CtlLogin($pseudo,$password); //Appel du controleur qui verifie si le mot de passe est correct Pas encore fait
+				$bonmotdepasse = ctlLogin($pseudo,$password); //
+
 				if($bonmotdepasse=false){
-					//Afficher Mot De pass incorect en html pas en php
+					//Afficher Mot De passe incorect en html pas en php
 					"<p name='erreur'> Mot de passe incorect</p>"
 				}else{
 					$type=recupererTypeEmploye($user,$pass);

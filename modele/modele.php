@@ -17,3 +17,10 @@ function recupererTypeEmploye($user,$pass){
  	$resultat->closeCursor();
  	return $employe;
 }
+function ctlLogin($pseudo,$password){
+	$connexion=getConnect();
+	$requete="select Login from Employes where (Login==$pseudo)";
+	$resultat=$connexion->query($requete);
+	$resultat->setFetchMode(PDO::FETCH_OBJ);
+	return($password=="select MDP from Employes where (Login==$pseudo)");
+}
