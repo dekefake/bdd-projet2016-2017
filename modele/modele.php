@@ -9,29 +9,22 @@ function getConnect(){
  	}
  	catch(Exception $e)
  	{
- 		die('Erreur de connection à la bdd : '.$e->getMessage());
+ 		afficherErreur($e);
  	}
  	return $connexion;
 }
 
-function recupererTypeEmploye($user,$pass){
-	$connexion=getConnect();
-	$requete="select Categorie from Employes where (Login='$user' AND MDP=='$pass')";
-	$resultat=$connexion->query($requete);
- 	$resultat->setFetchMode(PDO::FETCH_OBJ);
- 	$employe=$resultat->fetchall();
- 	$resultat->closeCursor();
- 	return $employe;
-}
 
-function ctlLogin($pseudo,$password){
-	$connexion=getConnect();
-	$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='$pseudo'");
-	if($resultat->rowCount()==0) return false;
+function getEmploye($pseudo){
+	try{
+		$connexion=getConnect();
+		$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='$pseudo'");
+	}catch(Exception $e){
+		afficherErreur($e);
+	}
+	if($resultat->rowCount()==0) throw new Exception('Cet employé n\'existe pas');
 	$resultat->setFetchMode(PDO::FETCH_OBJ);
-
-	$bonmotdepasse = $resultat->fetch();
-
+	$employe = $resultat->fetch();
 	$resultat->closeCursor();
-	return ($password==$bonmotdepasse->MDP);
+	return($employe);
 }

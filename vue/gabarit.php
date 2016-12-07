@@ -27,34 +27,7 @@
 		</fieldset>
 		
 		<?php
-			require_once('controlleur/controlleur.php');
-			if (isset($_POST['submit'])) {
-				$pseudo = $_POST['pseudo'];
-				$password = $_POST['motdepasse'];
-
-				if(!ctlLogin($pseudo,$password)) {
-					//Afficher Mot De passe incorect en html pas en php
-					echo '<p> Mot de passe incorect</p>';
-				} else {
-					echo '<p> Bien vu</p>';
-					$type=recupererTypeEmploye($user,$pass);
-					switch ($type) {
-						case agent:
-
-						break;
-						case medecin:
-
-						break;
-						case directeur:
-
-						break;
-						default:
-
-						break;
-
-					}
-				}
-			}
+		echo $contenu;
 		?>
 
 
