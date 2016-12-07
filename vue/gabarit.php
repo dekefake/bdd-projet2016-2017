@@ -17,7 +17,7 @@
 	   			<input type="text" name="pseudo" id="pseudo" required />
 	   		</p>
 	   		<p>
-	   			<label for ="mdp"> Nom: </label>
+	   			<label for ="mdp"> Mot de passe: </label>
 	   			<input type="password" name="motdepasse" id="motdepasse" required />
 	   		</p>
 	   		<p>
@@ -27,18 +27,18 @@
 		</fieldset>
 
 		<?php
-			require_once('controleur/controleur.php');
-			if (isset($_POST['submit'])){
+			require_once('controlleur/controlleur.php');
+			if (isset($_POST['submit'])) {
 				$pseudo = $_POST['pseudo'];
 				$password = $_POST['password'];
 				$bonmotdepasse = ctlLogin($pseudo,$password); //
 
-				if($bonmotdepasse=false){
+				if($bonmotdepasse=false) {
 					//Afficher Mot De passe incorect en html pas en php
-					"<p name='erreur'> Mot de passe incorect</p>"
-				}else{
+					echo "<p name='erreur'> Mot de passe incorect</p>";
+				} else {
 					$type=recupererTypeEmploye($user,$pass);
-					switch ($type){
+					switch ($type) {
 						case agent:
 
 						break;
