@@ -23,7 +23,7 @@ function ctlLogin($pseudo,$password){
 	$resultat=$connexion->query($requete);
 	$resultat->setFetchMode(PDO::FETCH_OBJ);
 	$requete2="select MDP from Employes where (Login==$pseudo)";
-	$bonmotdepasse=$connexion->query($requete);
-	$resultat->setFetchMode(PDO::FETCH_OBJ);
-	return($password==$bonmotdepasse);
+	$bonmotdepasse=$connexion->query($requete2);
+	$resultat2->setFetchMode(PDO::FETCH_OBJ);
+	return($resultat==$resultat2);
 }
