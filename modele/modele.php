@@ -10,7 +10,7 @@ function getConnect(){
 
 function recupererTypeEmploye($user,$pass){
 	$connexion=getConnect();
-	$requete="select Categorie from Employes where (Login==$user AND MDP==$pass)";
+	$requete="select Categorie from Employes where (Login='$user' AND MDP=='$pass')";
 	$resultat=$connexion->query($requete);
  	$resultat->setFetchMode(PDO::FETCH_OBJ);
  	$employe=$resultat->fetchall();
@@ -19,11 +19,13 @@ function recupererTypeEmploye($user,$pass){
 }
 function ctlLogin($pseudo,$password){
 	$connexion=getConnect();
-	$requete="select Login from Employes where (Login==$pseudo)";
+	$requete="SELECT MDP FROM Employes where '$pseudo'=Login;";
 	$resultat=$connexion->query($requete);
 	$resultat->setFetchMode(PDO::FETCH_OBJ);
-	$requete2="select MDP from Employes where (Login==$pseudo)";
-	$bonmotdepasse=$connexion->query($requete2);
-	$resultat2->setFetchMode(PDO::FETCH_OBJ);
-	return($resultat==$resultat2);
+	$bonmotdepasse=$resultat->fetchall();
+	foreach ($bonmotdepasse as $value) {
+			echo '<p>'.$value.'</p>';
+	}
+	$resultat->closeCursor();
+	return ($password==$bonmotdepasse);
 }

@@ -31,12 +31,12 @@
 			if (isset($_POST['submit'])) {
 				$pseudo = $_POST['pseudo'];
 				$password = $_POST['motdepasse'];
-				$bonmotdepasse = ctlLogin($pseudo,$password); //
 
-				if($bonmotdepasse==false) {
+				if(!ctlLogin($pseudo,$password)) {
 					//Afficher Mot De passe incorect en html pas en php
-					echo "<p name='erreur'> Mot de passe incorect</p>";
+					echo '<p> Mot de passe incorect</p>';
 				} else {
+					echo '<p> Bien vu</p>';
 					$type=recupererTypeEmploye($user,$pass);
 					switch ($type) {
 						case agent:
