@@ -2,9 +2,15 @@
 
 function getConnect(){
 	require_once('modele/connect.php');
- 	$connexion=new PDO('mysql:host='.SERVEUR.';dbname='.BDD,USER,PASSWORD);
- 	$connexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
- 	$connexion->query('SET NAMES UTF8');
+ 	try{
+ 		$connexion=new PDO('mysql:host='.SERVEUR.';dbname='.BDD,USER,PASSWORD);
+ 		$connexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+ 		$connexion->query('SET NAMES UTF8');
+ 	}
+ 	catch(Exception $e)
+ 	{
+ 		die('Erreur de connection à la bdd : '.$e->getMessage());
+ 	}
  	return $connexion;
 }
 
@@ -19,13 +25,14 @@ function recupererTypeEmploye($user,$pass){
 }
 function ctlLogin($pseudo,$password){
 	$connexion=getConnect();
-	$requete="SELECT MDP FROM Employes where '$pseudo'=Login;";
-	$resultat=$connexion->query($requete);
+	echo $pseudo;
+	$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='$pseudo'");
 	$resultat->setFetchMode(PDO::FETCH_OBJ);
-	$bonmotdepasse=$resultat->fetchall();
-	foreach ($bonmotdepasse as $value) {
-			echo '<p>'.$value.'</p>';
-	}
+
+	$bonmotdepasse = $resultat->fetch();
+	
+	echo $bonmotdepasse->MDP;
+
 	$resultat->closeCursor();
-	return ($password==$bonmotdepasse);
+	return ($password==$bonmotdepasse->MDP);
 }
