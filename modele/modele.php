@@ -10,7 +10,7 @@ function getConnect(){
 
 function recupererTypeEmploye($user,$pass){
 	$connexion=getConnect();
-	$requete="select * from Employes where (Login==$user AND MDP==$pass)";
+	$requete="select Categorie from Employes where (Login==$user AND MDP==$pass)";
 	$resultat=$connexion->query($requete);
  	$resultat->setFetchMode(PDO::FETCH_OBJ);
  	$employe=$resultat->fetchall();

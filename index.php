@@ -2,10 +2,13 @@
 $contenu='';
 try {
 	if(isset($_POST['submit']) && !empty($_POST['pseudo']) && !empty($_POST['motdepasse'])){
+		require_once('vue/gabarit.php');
 		$user=$_POST['pseudo'];
 		$pass=$_POST['motdepasse'];
 		$categorie=recupererTypeEmploye($user,$pass);
-		$contenu.='<p>'.$categorie->Categorie.'</p>'; // A ce stade, je pense que $contenu contient Agent, Medecin,
+		foreach ($categorie as $ligne){
+			echo '<p>Categorie : '.$categorie.'.</p>';
+		}
 		// ou directeur. Faudra vérifier, g pas réussi a tester :)
 	} else {
 		require_once('vue/gabarit.php');

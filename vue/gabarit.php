@@ -25,7 +25,7 @@
 	   			<input type ="reset" value="ToutEffacer" name ="f1"  />
 			 </form>
 		</fieldset>
-
+		
 		<?php
 			require_once('controlleur/controlleur.php');
 			if (isset($_POST['submit'])) {
