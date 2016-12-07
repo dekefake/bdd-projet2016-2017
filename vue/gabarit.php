@@ -30,10 +30,10 @@
 			require_once('controlleur/controlleur.php');
 			if (isset($_POST['submit'])) {
 				$pseudo = $_POST['pseudo'];
-				$password = $_POST['password'];
+				$password = $_POST['motdepasse'];
 				$bonmotdepasse = ctlLogin($pseudo,$password); //
 
-				if($bonmotdepasse=false) {
+				if($bonmotdepasse==false) {
 					//Afficher Mot De passe incorect en html pas en php
 					echo "<p name='erreur'> Mot de passe incorect</p>";
 				} else {

@@ -9,7 +9,7 @@ try {
 		foreach ($categorie as $ligne){
 			echo '<p>Categorie : '.$categorie.'.</p>';
 		}
-		// ou directeur. Faudra vérifier, g pas réussi a tester :)
+		
 	} else {
 		require_once('vue/gabarit.php');
 	}
