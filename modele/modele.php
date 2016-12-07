@@ -23,15 +23,14 @@ function recupererTypeEmploye($user,$pass){
  	$resultat->closeCursor();
  	return $employe;
 }
+
 function ctlLogin($pseudo,$password){
 	$connexion=getConnect();
-	echo $pseudo;
 	$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='$pseudo'");
+	if($resultat->rowCount()==0) return false;
 	$resultat->setFetchMode(PDO::FETCH_OBJ);
 
 	$bonmotdepasse = $resultat->fetch();
-	
-	echo $bonmotdepasse->MDP;
 
 	$resultat->closeCursor();
 	return ($password==$bonmotdepasse->MDP);
