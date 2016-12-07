@@ -25,4 +25,6 @@ Pour creer la table des actes :
 
 CREATE TABLE `mvcprojet`.`Actes` ( `Intitule` TEXT NOT NULL , `Categorie` TEXT NOT NULL , `Prix` FLOAT NOT NULL , `Consignes` TEXT NOT NULL ) ENGINE = InnoDB;
 
+Pour creer la table des rdv : 
 
+CREATE TABLE `mvcprojet`.`Rendez-vous` ( `Date` DATE NOT NULL , `Heure` TIME NOT NULL , `MedecinID` INT NOT NULL , `ClientNSS` BIGINT NOT NULL , `Paye` BOOLEAN NOT NULL , `IntituleActe` TEXT NOT NULL ) ENGINE = InnoDB;
