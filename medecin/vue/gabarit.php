@@ -9,6 +9,9 @@
     
 	<body>
 	<h1>Page des médecins</h1>
+	<?php
+		echo 'Connecté en tant que '.$_POST['login'].'.';
+	?>
 	<div>
 	</div>
 

@@ -8,7 +8,10 @@
     </head>
     
 	<body>
-	<h1>Page du dirlo</h1>
+	<h1>Gestion de la clinique - Réservée au directeur</h1>
+	<?php
+		echo 'Connecté en tant que '.$_POST['login'].'.';
+	?>
 	<div>
 	</div>
 
