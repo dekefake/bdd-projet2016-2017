@@ -25,23 +25,15 @@ function ctlAccueil(){
 			else {
 				echo '<p> Bien vu</p>';
 				$employe = getEmploye($pseudo);
-				switch ($employe->Categorie) {
-				case 'Agent':
-					echo '<p> Agent</p>';
-					header('Location: agent/index.php?user='.$pseudo);
-					break;
-				case 'Medecin':
-					echo '<p> Médecin</p>';
-					header('Location: medecin/index.php?user='.$pseudo);
-					break;
-				case 'Directeur':
-					echo '<p> Directeur</p>';
-					header('Location: directeur/index.php?user='.$pseudo);
-					break;
-				default:
+				
+				if($employe->Categorie=='Agent' || $employe->Categorie=='Medecin' || $employe->Categorie=='Directeur'){
+					echo '<p>Bienvenue, '.$pseudo.'</p>
+					<form method="post" action="'.$employe->Categorie.'/index.php">
+						<input type="hidden" name="login" id="login" value="'.$pseudo.'">
+	   					<input type="submit" value="Cliquez ici pour acceder a votre page perso" name="submit" />
+	   				</form> ';
+				} else {
 					echo '<p> Intru</p>';
-					break;
-
 				}
 			}
 		}
