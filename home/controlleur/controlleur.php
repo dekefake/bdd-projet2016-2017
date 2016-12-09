@@ -1,6 +1,6 @@
 <?php 
-require_once('modele/modele.php');
-require_once('vue/vue.php');
+require_once('home/modele/modele.php');
+require_once('home/vue/vue.php');
 
 function ctlLogin($pseudo,$password){
 	$connexion=getConnect();

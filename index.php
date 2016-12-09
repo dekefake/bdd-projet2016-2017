@@ -1,4 +1,4 @@
-<?php require_once('controlleur/controlleur.php');
+<?php require_once('home/controlleur/controlleur.php');
 $contenu='';
 try {
 	ctlAccueil();
