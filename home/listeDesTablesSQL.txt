@@ -18,7 +18,7 @@ Pour creer la table des clients :
 
 CREATE TABLE `mvcprojet`.`Clients` ( `Nom` TEXT NOT NULL , `Prenom` TEXT NOT NULL , `DateNaissance` DATE NOT NULL , `Adresse` TEXT NOT NULL , `NumTel` BIGINT NOT NULL , `Mail` TEXT NOT NULL , `Profession` TEXT NOT NULL , `SituationFamiliale` TEXT NOT NULL , `ClientNSS` BIGINT NOT NULL , `Solde` INT NOT NULL , PRIMARY KEY (`ClientNSS`)) ENGINE = InnoDB;
 
-
+INSERT INTO `Clients` (`Nom`, `Prenom`, `DateNaissance`, `Adresse`, `NumTel`, `Mail`, `Profession`, `SituationFamiliale`, `ClientNSS`, `Solde`) VALUES ('Betencourt', 'Ingrid', '1921-01-01', 'loreal', '0605040302', 'betencourt@gmail.com', 'PDG de Loreal', 'Celibataire', '22124565274511', '1000000')
 
 
 
