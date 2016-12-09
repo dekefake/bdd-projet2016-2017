@@ -16,7 +16,7 @@ INSERT INTO `Employes` (`ID`, `Login`, `MDP`, `Categorie`, `Specialite`) VALUES 
 
 Pour creer la table des clients :
 
-CREATE TABLE `mvcprojet`.`Clients` ( `Nom` TEXT NOT NULL , `Prenom` TEXT NOT NULL , `DateNaissance` DATE NOT NULL , `Adresse` TEXT NOT NULL , `NumTel` BIGINT NOT NULL , `Mail` TEXT NOT NULL , `Profession` TEXT NOT NULL , `SituationFamiliale` TEXT NOT NULL , `NSS` BIGINT NOT NULL , `Solde` INT NOT NULL , PRIMARY KEY (`NSS`)) ENGINE = InnoDB;
+CREATE TABLE `mvcprojet`.`Clients` ( `Nom` TEXT NOT NULL , `Prenom` TEXT NOT NULL , `DateNaissance` DATE NOT NULL , `Adresse` TEXT NOT NULL , `NumTel` BIGINT NOT NULL , `Mail` TEXT NOT NULL , `Profession` TEXT NOT NULL , `SituationFamiliale` TEXT NOT NULL , `ClientNSS` BIGINT NOT NULL , `Solde` INT NOT NULL , PRIMARY KEY (`ClientNSS`)) ENGINE = InnoDB;
 
 
 
@@ -25,8 +25,8 @@ CREATE TABLE `mvcprojet`.`Clients` ( `Nom` TEXT NOT NULL , `Prenom` TEXT NOT NUL
 
 Pour creer la table des actes :
 
-CREATE TABLE `mvcprojet`.`Actes` ( `Intitule` TEXT NOT NULL , `Categorie` TEXT NOT NULL , `Prix` FLOAT NOT NULL , `Consignes` TEXT NOT NULL ) ENGINE = InnoDB;
+CREATE TABLE `mvcprojet`.`Actes` ( `Intitule` TEXT NOT NULL , `Specialite` TEXT NOT NULL , `Prix` FLOAT NOT NULL , `Consignes` TEXT NOT NULL ) ENGINE = InnoDB;
 
 Pour creer la table des rdv : 
 
-CREATE TABLE `mvcprojet`.`Rendez-vous` ( `Date` DATE NOT NULL , `Heure` TIME NOT NULL , `MedecinID` INT NOT NULL , `ClientNSS` BIGINT NOT NULL , `Paye` BOOLEAN NOT NULL , `IntituleActe` TEXT NOT NULL ) ENGINE = InnoDB;
+CREATE TABLE `mvcprojet`.`Rendez-vous` ( `Date` DATE NOT NULL , `Heure` TIME NOT NULL , `ID` INT NOT NULL , `ClientNSS` BIGINT NOT NULL , `Paye` BOOLEAN NOT NULL , `IntituleActe` TEXT NOT NULL ) ENGINE = InnoDB;
