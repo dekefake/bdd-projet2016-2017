@@ -28,12 +28,15 @@ function ctlAccueil(){
 				switch ($employe->Categorie) {
 				case 'Agent':
 					echo '<p> Agent</p>';
+					header('Location: agent/index.php?user='.$pseudo);
 					break;
 				case 'Medecin':
 					echo '<p> Médecin</p>';
+					header('Location: medecin/index.php?user='.$pseudo);
 					break;
 				case 'Directeur':
 					echo '<p> Directeur</p>';
+					header('Location: directeur/index.php?user='.$pseudo);
 					break;
 				default:
 					echo '<p> Intru</p>';

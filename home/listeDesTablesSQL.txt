@@ -8,6 +8,8 @@ On pourra lister ici les commandes SQL pour ajouter facilement des employés, cl
 
 INSERT INTO `Employes` (`ID`, `Login`, `MDP`, `Categorie`, `Specialite`) VALUES (NULL, 'Durant', 'motdepassekikou', 'Medecin', 'Cardiologue'), (NULL, 'Faradet', 'jesaispasquoimettrecommemdp', 'Medecin', 'Chirurgien')
 
+INSERT INTO `Employes` (`ID`, `Login`, `MDP`, `Categorie`, `Specialite`) VALUES (NULL, 'Clement', 'clem', 'Agent', '0')
+
 
 
 

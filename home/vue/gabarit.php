@@ -23,13 +23,14 @@
 	   		<p>
 	   			<input type ="submit" value="Connexion" name="submit" />
 	   			<input type ="reset" value="ToutEffacer" name ="f1"  />
+	   		</p>
 			 </form>
 		</fieldset>
 		
 		<?php
 		echo $contenu;
 		?>
-
+	</div>
 
 	</body>
 
