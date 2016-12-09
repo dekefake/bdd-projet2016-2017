@@ -1,4 +1,14 @@
 <?php
+function getID($nom){
+	require_once ('../home/modele/modele.php');
+	try{
+		$connexion=getConnect();
+		$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='".$nom."'");
+		$resultat->setFetchMode(PDO::FETCH_OBJ);
+	}catch{
+		
+	}
+}
 
 function getPlanning($IDMedecin){
 	require_once('../home/modele/modele.php');
