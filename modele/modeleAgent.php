@@ -1,7 +1,7 @@
 <?php
 
 function nouveau_client($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profession,$situationFamiliale,$clientNSS){
-	require_once('../home/modele/modele.php');
+	require_once('modele/modeleAccueil.php');
 
 	try{
 		$connexion=getConnect();

@@ -1,17 +1,17 @@
 <?php
 function getID($nom){
-	require_once ('../home/modele/modele.php');
+	require_once('modele/modeleAccueil.php');
 	try{
 		$connexion=getConnect();
 		$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='".$nom."'");
 		$resultat->setFetchMode(PDO::FETCH_OBJ);
-	}catch{
-		
+	}catch (Exception $e){
+		afficherErreur($e); //FAIRE LA METHODE 
 	}
 }
 
 function getPlanning($IDMedecin){
-	require_once('../home/modele/modele.php');
+	require_once('modele/modeleAccueil.php');
 	try{
 		$connexion=getConnect();
 		$resultat=$connexion->query("SELECT * FROM Employes WHERE ID='$IDMedecin'");

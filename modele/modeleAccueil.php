@@ -1,7 +1,7 @@
 <?php
 
 function getConnect(){
-	require_once('home/modele/connect.php');
+	require_once('modele/connect.php');
  	try{
  		$connexion=new PDO('mysql:host='.SERVEUR.';dbname='.BDD,USER,PASSWORD);
  		$connexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);

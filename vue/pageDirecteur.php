@@ -8,9 +8,9 @@
     </head>
     
 	<body>
-	<h1>Page des médecins</h1>
+	<h1>Gestion de la clinique - Réservée au directeur</h1>
 	<?php
-		echo 'Connecté en tant que '.$_POST['login'].'.';
+		echo 'Connecté en tant que '.$_POST['connexionvalidepseudo'].'.';
 	?>
 	<div>
 	</div>

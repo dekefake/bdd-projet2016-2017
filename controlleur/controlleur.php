@@ -1,6 +1,6 @@
 <?php 
-require_once('home/modele/modele.php');
-require_once('home/vue/vue.php');
+require_once('modele/modeleAccueil.php');
+require_once('vue/vue.php');
 
 function ctlLogin($pseudo,$password){
 	$connexion=getConnect();
@@ -23,13 +23,13 @@ function ctlAccueil(){
 			if(!ctlLogin($pseudo,$password)) {echo '<p> Mot de passe incorect</p>';
 			}
 			else {
-				echo '<p> Bien vu</p>';
 				$employe = getEmploye($pseudo);
 				
 				if($employe->Categorie=='Agent' || $employe->Categorie=='Medecin' || $employe->Categorie=='Directeur'){
-					echo '<p>Bienvenue, '.$pseudo.'</p>
-					<form method="post" action="'.$employe->Categorie.'/index.php">
-						<input type="hidden" name="login" id="login" value="'.$pseudo.'">
+					echo '<p>Bienvenue, '.$pseudo.'<br>fonction : '.$employe->Categorie.'</p>
+					<form method="post" action="index.php">
+						<input type="hidden" name="connexionvalidepseudo" id="connexionvalidepseudo" value="'.$pseudo.'">
+						<input type="hidden" name="connexionvalidecategorie" id="connexionvalidecategorie" value="'.$employe->Categorie.'">
 	   					<input type="submit" value="Cliquez ici pour acceder a votre page perso" name="submit" />
 	   				</form> ';
 				} else {
@@ -40,4 +40,19 @@ function ctlAccueil(){
 	} catch(Exception $e){
 		afficherErreur($e);
 	}
+}
+
+function ctlAgent(){
+	require_once('modele/modeleAgent.php');
+	afficherPageAgent();
+}
+
+function ctlMedecin(){
+	require_once('modele/modeleMedecin.php');
+	afficherPageMedecin();
+}
+
+function ctlDirecteur(){
+	require_once('modele/modeleDirecteur.php');
+	afficherPageDirecteur();
 }
