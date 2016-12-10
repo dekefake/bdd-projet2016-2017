@@ -12,34 +12,30 @@ function ctlLogin($pseudo,$password){
 	}
 }
 
+function Categorie($login){
+	$employe=getEmploye($pseudo);
+	return $employe->Categorie;
+
+}
+
 function ctlAccueil(){
-	try {
-		afficherFormulaire();
-		if(isset($_POST['submit']) && !empty($_POST['pseudo']) && !empty($_POST['motdepasse'])){
-		
-			$pseudo=$_POST['pseudo'];
-			$password=$_POST['motdepasse'];
-		
-			if(!ctlLogin($pseudo,$password)) {echo '<p> Mot de passe incorect</p>';
-			}
-			else {
-				$employe = getEmploye($pseudo);
-				
-				if($employe->Categorie=='Agent' || $employe->Categorie=='Medecin' || $employe->Categorie=='Directeur'){
-					echo '<p>Bienvenue, '.$pseudo.'<br>fonction : '.$employe->Categorie.'</p>
-					<form method="post" action="index.php">
-						<input type="hidden" name="connexionvalidepseudo" id="connexionvalidepseudo" value="'.$pseudo.'">
-						<input type="hidden" name="connexionvalidecategorie" id="connexionvalidecategorie" value="'.$employe->Categorie.'">
-	   					<input type="submit" value="Cliquez ici pour acceder a votre page perso" name="submit" />
-	   				</form> ';
-				} else {
-					echo '<p> Intru</p>';
-				}
-			}
-		}
-	} catch(Exception $e){
-		afficherErreur($e);
-	}
+	echo'<h1>Bonjour et bienvenue sur le site de la clinique </h1>
+			<fieldset>
+				<form method="post" action="#">
+				<p>
+		   			<label for ="Nom"> Nom: </label>
+		   			<input type="text" name="pseudo" id="pseudo" required />
+		   		</p>
+		   		<p>
+		   			<label for ="mdp"> Mot de passe: </label>
+		   			<input type="password" name="motdepasse" id="motdepasse" required />
+		   		</p>
+		   		<p>
+		   			<input type ="submit" value="Connexion" name="submit" />
+		   			<input type ="reset" value="ToutEffacer" name ="f1"  />
+		   		</p>
+				</form>
+			</fieldset>'
 }
 
 function ctlAgent(){
