@@ -10,7 +10,7 @@
 	<body>
 	<h1>Page des médecins</h1>
 	<?php
-		echo 'Connecté en tant que '.$_POST['connexionvalidepseudo'].'.';
+		echo 'Connecté en tant que '.$_POST['pseudo'].'.';
 	?>
 	<div>
 	</div>

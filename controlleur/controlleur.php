@@ -28,5 +28,9 @@ function ctlDirecteur(){
 }
 
 function ctlAccueil(){
-	afficherPageAccueil();
+	afficherFormulaire();
+}
+
+function ctlBonnePage(){
+	BonnePage();
 }

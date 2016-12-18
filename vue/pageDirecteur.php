@@ -10,7 +10,7 @@
 	<body>
 	<h1>Gestion de la clinique - Réservée au directeur</h1>
 	<?php
-		echo '<p><div class="logAs">Connecté en tant que '.$_POST['connexionvalidepseudo'].'.</p>';
+		echo '<p><div class="logAs">Connecté en tant que '.$_POST['pseudo'].'.</p>';
 	?>
 
 	<form name="engager" id="monForm" action="#" method="post">
@@ -53,7 +53,7 @@
 
 	<form name="modifier" id="monForm2" action="#" method="post">
 	   	<fieldset>
-	   		<legend>Modifier employé </legend>
+	   		<legend>Modifier un employé </legend>
 	   		<p>
 	   			Tout d'abord choisissez le login de la personne a modifier : 
 	   		</p>
@@ -66,7 +66,7 @@
 	   		</p>
 	   		<p>
 		   		<?php
-		   			if (isset($_POST['boutonChercher']){
+		   			if (isset($_POST['boutonChercher'])){
 		   				echo '<p>Maintnenant faites vos changements </p>';
 		   				$login=$_POST['login'];
 		   				modifierEmploye($login); //TODO (affiche un  formulaire avec dans chaque label les parametres qu'on avait deja)

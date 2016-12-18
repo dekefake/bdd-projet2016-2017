@@ -32,5 +32,4 @@ function getEmploye($pseudo){
 function getCategorieEmploye($pseudo){
 	$employe=getEmploye($pseudo);
 	return $employe->Categorie;
-
 }
