@@ -27,7 +27,7 @@
 			</fieldset>
 
 	<?php 
-	if(!isset($_POST['Submit']||log==true)){ //Si il na pas cliqué sur connexion
+	if(!isset($_POST['Submit']||log==false)){ //Si il na pas cliqué sur connexion
 		ctlAccueil();
 	
 	}elseif{//Donc il est arrrivé ici car il a cliqué sur sur envoyer
@@ -36,15 +36,15 @@
 			log=true;//Cela permetra a la page de ne pas reaficher ctlAcceuil des qu'on fait une autre requette et meme de créer un bouton Deconnexion dans le header
 			switch (Categorie($pseudo)) {
 				case 'medecin':
-					include("medecin.php");
+					include("pageMedecin.php");
 					break;
 				
 			case 'agent':
-					include("agent.php");
+					include("pageAgent.php");
 					break;
 				
 			case 'directeur':
-					include("directeur.php");
+					include("pageDirecteur.php");
 					break;
 				
 				default:
