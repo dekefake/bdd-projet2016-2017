@@ -28,3 +28,9 @@ function getEmploye($pseudo){
 	$resultat->closeCursor();
 	return($employe);
 }
+
+function getCategorieEmploye($pseudo){
+	$employe=getEmploye($pseudo);
+	return $employe->Categorie;
+
+}
