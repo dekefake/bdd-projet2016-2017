@@ -26,3 +26,7 @@ function ctlDirecteur(){
 	require_once('modele/modeleDirecteur.php');
 	afficherPageDirecteur();
 }
+
+function ctlAccueil(){
+	afficherPageAccueil();
+}

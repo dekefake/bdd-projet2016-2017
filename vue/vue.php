@@ -25,3 +25,8 @@ function afficherPageMedecin(){
 	require_once('vue/pageMedecin.php');
 }
 
+function afficherPageAccueil(){
+	$contenu="";
+	require_once('vue/pageAccueil.php');
+}
+
