@@ -10,10 +10,6 @@ function afficherFormulaire(){
 	require_once('vue/pageAccueil.php');
 }
 
-function afficherPageAgent(){
-	$contenu="";
-	require_once('vue/pageAgent.php');
-}
 
 function afficherPageDirecteur(){
 	$contenu="";
@@ -25,30 +21,26 @@ function afficherPageMedecin(){
 	require_once('vue/pageMedecin.php');
 }
 
-function BonnePage(){
-	if(isset($_POST['submit']) && !empty($_POST['pseudo']) && !empty($_POST['motdepasse'])){
-			$pseudo=$_POST['pseudo'];
-			$password=$_POST['motdepasse'];
-			if(!ctlLogin($pseudo,$password)) {
-				echo '<p> Mot de passe incorect</p>';
-			} else {
-				$categorie = getCategorieEmploye($pseudo);
-				switch ($categorie) {
-					case 'Medecin':
-						include_once("pageMedecin.php");
-						break;
-					case 'Agent':
-						include_once("pageAgent.php");
-						break;	
-					case 'Directeur':
-						include_once("pageDirecteur.php");
-						break;	
-					default:
-						echo "<p>Desolé, vous ne semblez pas etre un employé de la clinique.</p>";
-						break;
-				}
-			}
-		} else {//Donc il est arrrivé ici car il a cliqué sur sur envoyer
-		ctlAccueil();
+
+
+function afficherPageAgent(){
+	$contenu='';
+	require_once('vue/pageAgent.php');
+}
+
+function afficherSynthese($patient,$historique){
+	$contenu = '<h3>Synthèse du patient '.$patient->ClientNSS.' </h3>';
+	$contenu += '<ul><li>Nom : '.$patient->Nom.'</li><li>Prénom : '.$patient->Prenom.'</li><li>Date de naissance : '.$patient->DateNaissance.'</li><li>Adresse : '.$patient->Adresse.'</li><li>Numéro de téléphone : '.$patient->NumTel.'</li><li>Adresse mail : '.$client->Mail.'</li><li>Profession : '.$patient->Profession.'</li><li>Situation familiale : '.$patient->SituationFamiliale.'</li><li>NSS : '.$patient->ClientNSS.'</li><li>Solde : '.$patient->Solde.'€</li></ul>';
+	$contenu += '<h5>Historique des consultations et actes</h5><table><tr><th>Médecin</th><th>Date</th><th>Prix</th><th>Compte rendu</th><th>Suivi</th></tr>';
+	foreach($historique as $acte){
+		$contenu += '<tr><td>'.$acte->Login.'</td><td>'.$acte->Date.'</td><td>'.$acte->Prix.'</td><td>'.$acte->CompteRendu.'</td><td>'.$acte->Suivi.'</td></tr>';
 	}
+	$contenu += '</table>';
+	require_once('vue/pageAgent.php');
+
+}
+
+function afficherErreurAgent($erreur){
+	$contenu='<p>'.$erreur->getMessage().'</p>';
+	require_once('vue/pageAgent.php');
 }

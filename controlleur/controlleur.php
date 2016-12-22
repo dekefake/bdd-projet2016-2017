@@ -3,7 +3,6 @@ require_once('modele/modeleAccueil.php');
 require_once('vue/vue.php');
 
 function ctlLogin($pseudo,$password){
-	$connexion=getConnect();
 	try{
 		return($password==getEmploye($pseudo)->MDP);
 	}
@@ -14,7 +13,20 @@ function ctlLogin($pseudo,$password){
 
 function ctlAgent(){
 	require_once('modele/modeleAgent.php');
-	afficherPageAgent();
+	if(isset($_POST['synthesePatient'])){
+		$nss = $_POST['nssSynthese'];
+		try{
+			$patient = getClient($nss);
+			$historique = getHistoriqueClient($nss);
+			afficherSynthese($patient,$historique);
+		}catch(Exception $e){
+			afficherErreurAgent($e);
+		}
+	}
+	else if(isset($_POST['logOut'])) ctlAccueil();
+	else afficherPageAgent();
+
+	
 }
 
 function ctlMedecin(){
@@ -31,6 +43,22 @@ function ctlAccueil(){
 	afficherFormulaire();
 }
 
-function ctlBonnePage(){
-	BonnePage();
+function ctlBonnePage($pseudo){
+	$employe = getEmploye($pseudo);
+	$categorie = $employe->Categorie;
+	switch ($categorie) {
+		case 'Medecin':
+			ctlMedecin();
+			break;
+		case 'Agent':
+			ctlAgent();
+			break;	
+		case 'Directeur':
+			ctlDirecteur();
+			break;	
+		default:
+			echo "<p>Desolé, vous ne semblez pas etre un employé de la clinique.</p>";
+			break;
+				}
 }
+

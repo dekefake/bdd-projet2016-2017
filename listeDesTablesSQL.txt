@@ -1,7 +1,10 @@
 - Clients : Nom(TEXT), Prenom(TEXT), DateNaissance(DATE), Adresse(TEXT), NumTel(BIGINT), Mail(TEXT), Profession(TEXT), SituationFamiliale(TEXT), NSS(BIGINT), Solde(INT)
 - Actes : Intitule(TEXT), Categorie(TEXT), Prix(FLOAT), Consignes(TEXT)
-- Rendez-vous : Date(DATE), Heure(TIME), MedecinID(INT), ClientNSS(BIGINT), Paye(BOOLEAN), IntituleActe(TEXT)
+- Rendez-vous : Date(DATE), Heure(TIME), MedecinID(INT), ClientNSS(BIGINT), Paye(BOOLEAN), Intitule(TEXT), CompteRendu(TEXT), Suivi(TEXT)
 - Employes : ID(AutoIncremente), Login(TEXT), MDP(TEXT), Categorie(TEXT), Specialite(TEXT)
+- HistoriqueSolde : ClientNSS(BIGINT), Date(DATE), Montant(INT), Solde(INT)
+
+// HistoriqueSolde représente l’historique de toutes les opérations réalisées sur les soldes des clients.
 
 
 On pourra lister ici les commandes SQL pour ajouter facilement des employés, clients, actes, rendez-vous au besoin. J'ai crée un Cardiologue et un Chirurgien.

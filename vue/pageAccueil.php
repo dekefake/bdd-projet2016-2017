@@ -27,7 +27,7 @@
 			</fieldset>
 
 	<?php
-		ctlBonnePage();
+		echo $contenu;
 	?>
 
 	</body>
