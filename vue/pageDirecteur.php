@@ -51,6 +51,30 @@
 		</fieldset>
 	</form>
 
+	<form name="creeract" id="monForm3" action="#" method="post">
+	   	<fieldset>
+	   		<legend>Créer un acte</legend>
+	   		<p>
+	   			<label for="Intitule">Intitule : </label>
+       			<input type="text" name="intitule" id="intitule" required />	
+	   		</p><p>
+	   			<label for="Categorie">Categorie : </label>
+       			<input type="text" name="categorie" id="categorie" required />	
+	   		</p>
+	   		<p>
+	   			<label for="Prix">Prix : </label>
+       			<input type="number" name="prix" id="prix" required />	
+	   		</p>
+	   		<p>
+	   			<label for="Consigne">Consigne : </label>
+       			<input type="textareanc" name="consigne" id="consigne" required />	
+	   		</p>
+	   		<p>
+	   			<input type ="submit" value="Créer" name="boutonCreerActe" /> />	
+	   		</p>
+		</fieldset>
+	</form>
+
 	<form name="modifier" id="monForm2" action="#" method="post">
 	   	<fieldset>
 	   		<legend>Modifier un employé </legend>
