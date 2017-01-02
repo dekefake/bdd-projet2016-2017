@@ -20,9 +20,9 @@ try{
 				$solde = $_POST['modifSoldeClient'];
 				ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde);
 			}
-			if(isset($_POST['modifClient'])){
-				$nss = $_POST['nssModif'];
-				modifClient($nss,$_POST['pseudo'],$_POST['motdepasse']);
+			if(isset($_POST['synthesePatient'])){
+				$nss = $_POST['nssSynthese'];
+				CtlAfficherSynthese($nss);
 			}
 			ctlBonnePage($pseudo,$motdepasse);
 

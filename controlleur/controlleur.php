@@ -1,6 +1,7 @@
  <?php 
 require_once('modele/modeleAccueil.php');
 require_once('vue/vue.php');
+require_once('modele/modeleAgent.php');
 
 function ctlLogin($pseudo,$password){
 	try{
@@ -19,6 +20,7 @@ function ctlAgent($pseudo,$motdepasse){
 	require_once('modele/modeleAgent.php');
 	afficherPageAgent($pseudo,$motdepasse);
 }
+
 
 function ctlSynthese($nss){
 	try{
@@ -72,5 +74,10 @@ function ctlBonnePage($pseudo,$motdepasse){
 			echo "<p>Desolé, vous ne semblez pas etre un employé de la clinique.</p>";
 			break;
 	}
+}
+
+function CtlAfficherSynthese($nss){
+	$client=getClient($nss);
+	afficherSynthese($client,null);
 }
 
