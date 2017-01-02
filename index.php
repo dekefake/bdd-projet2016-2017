@@ -22,6 +22,14 @@ try{
 			}
 			if(isset($_POST['logOut'])) ctlAccueil();
 
+			if(isset($_POST['boutonCreerActe'])){
+			$intitule = $_POST['intitule'];
+			$categorie = $_POST['categorie'];
+			$prix = $_POST['prix'];
+			$consigne = $_POST['consigne'];
+			ctlCreerActe($intitule,$categorie,$prix,$consigne);
+		}
+
 			if(isset($_POST['synthesePatient'])){
 				$nss = $_POST['nssSynthese'];
 				ctlSynthese($nss);

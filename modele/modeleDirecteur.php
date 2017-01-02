@@ -2,7 +2,7 @@
 	
 	require_once('modele/modeleAccueil.php');
 
-	function nouvelActe($intitule,$specialite,$prix,$consignes){
+	function creerActe($intitule,$specialite,$prix,$consignes){
 		try{
 			$connexion=getConnect();
 			$resultat=$connexion->query("INSERT INTO Actes VALUES('".$intitule."','".$specialite."','".$prix."','".$consignes."')");
