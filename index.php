@@ -9,7 +9,22 @@ try{
 		if(ctlLogin($pseudo,$motdepasse)){
 			if(isset($_POST['modifClient'])){
 				modifClient($_POST['nssModif'],$pseudo,$motdepasse);
+			}$
+
+
+			if(isset($_POST['ajouterRDV'])){
+				$date = $_POST['newDate'];
+				$heure = $_POST['newHeure'];
+				$id = $_POST['idMedecin'];
+				$nss = $_POST['newNSSClient'];
+				$CR = $_POST['compterendu'];
+				$intitule = $_POST['newIntitule'];
+				$suivi = $_POST['suivi'];
+				$paye = false; 
+				ctlnouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye);
 			}
+
+
 			if(isset($_POST['boutonModifClient'])){
 				$nom = $_POST['modifNomClient'];
 				$prenom = $_POST['modifPrenomClient'];

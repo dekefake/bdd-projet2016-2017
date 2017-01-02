@@ -2,10 +2,10 @@
 
 require_once('modele/modeleAccueil.php');
 
-function getID($nom){
+function getID($pseudo){
 	try{
 		$connexion=getConnect();
-		$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='".$nom."'");
+		$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='".$pseudo."'");
 		$resultat->setFetchMode(PDO::FETCH_OBJ);
 	}catch (Exception $e){
 		afficherErreur($e); //FAIRE LA METHODE 

@@ -68,6 +68,7 @@
 				</p>
 			</fieldset>
 		</form>
+
 		<form name="modifierclient" id="modifierclient" action="#" method="post">
 			<fieldset>
 				<legend> Modifier un patient</legend>
@@ -83,6 +84,7 @@
 		</form>
 		<form name="affichersyntheseclient" id="affichersyntheseclient" action="#" method="post">
 			<fieldset>
+
 				<legend> Afficher la synthèse d'un patient</legend>
 				<p>
 					<label for="nss">NSS du patient : </label>
@@ -94,6 +96,9 @@
 				</p>
 			</fieldset>
 		</form>
+
+
+		
 		<form name="logout" action="#" method="post">
 			<input type ="submit" value="Déconnexion" name="logOut" />
 		</form>
