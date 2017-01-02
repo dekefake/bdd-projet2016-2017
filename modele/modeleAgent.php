@@ -1,11 +1,11 @@
 <?php
 
-function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profession,$situationFamiliale,$clientNSS){
+function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profession,$situationFamiliale,$clientNSS,$solde){
 	require_once('modele/modeleAccueil.php');
 
 	try{
 		$connexion=getConnect();
-		$requete="INSERT INTO Clients VALUES('".$nom."','".$prenom."','".$dateNaissance."','".$adresse."','".$numTel."','".$mail."','".$profession."','".$situationFamiliale."','"."','".$clientNSS."',0)";
+		$requete="INSERT INTO Clients VALUES('".$nom."','".$prenom."','".$dateNaissance."','".$adresse."','".$numTel."','".$mail."','".$profession."','".$situationFamiliale."','"."','".$clientNSS."','".$solde."')";
 		$resultat=$connexion->query($requete);
 		$resultat->closeCursor();
 
@@ -76,4 +76,19 @@ function setSolde($nss,$montant){
 		afficherErreur($e);
 		return false;
 	}
+}
+
+function getRDVEnAttente(){
+	require_once('modele/modeleAccueil.php');
+	try{
+		$connexion=getConnect();
+		$resultat=$connexion->query("SELECT * FROM Rendez-vous WHERE Paye=false");
+	}catch(Exception $e){
+		afficherErreur($e);
+	}
+	if($resultat->rowCount()==0) throw new Exception('Tous les actes et consultations ont été payés.');
+	$resultat->setFetchMode(PDO::FETCH_OBJ);
+	$rdv = $resultat->fetch();
+	$resultat->closeCursor();
+	return $rdv;
 }

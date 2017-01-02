@@ -1,6 +1,8 @@
 <?php
+
+require_once('modele/modeleAccueil.php');
+
 function getID($nom){
-	require_once('modele/modeleAccueil.php');
 	try{
 		$connexion=getConnect();
 		$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='".$nom."'");
@@ -10,12 +12,21 @@ function getID($nom){
 	}
 }
 
+function nouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye){
+	try{
+		$connexion=getConnect();
+		$resultat=$connexion->query("INSERT INTO Rendez-vous VALUES('".$date."','".$heure."','".$ID."','".$NSS."','".$intitule."','".$compteRendu."','".$suivi."','".$paye."')");
+	}catch (Exception $e){
+		afficherErreur($e); //FAIRE LA METHODE 
+	}
+	$resultat->closeCursor();
+}
+
 function getPlanning($IDMedecin){
-	require_once('modele/modeleAccueil.php');
 	try{
 		$connexion=getConnect();
 		$resultat=$connexion->query("SELECT * FROM Employes WHERE ID='$IDMedecin'");
-		if($resultat->rowCount()==0|| $resultat->categorie!='Medecin') 
+		if($resultat->rowCount()==0 || $resultat->categorie!='Medecin') 
 			throw new Exception(' medecin n\'existe pas');
 		$resultat->setFetchMode(PDO::FETCH_OBJ);
 	}catch (Exception $e){
@@ -28,6 +39,7 @@ function getPlanning($IDMedecin){
 	$resultat->closeCursor();
 	return($planning);
 }
+
 
 	
 	
