@@ -29,7 +29,7 @@
 				</p>
 				<p>
 					<label for="BithdayDate">Date de naissance : </label>
-					<input type="Date" name="nvDateClient" id="nvDateClient" required />
+					<input type="date" name="nvDateClient" id="nvDateClient" required />
 				</p>
 				<p>
 					<label for="Adresse">Adresse : </label>
@@ -41,7 +41,7 @@
 				</p>
 				<p>
 					<label for="Mail">Mail : </label>
-					<input type="Mail" name="nvMailClient" id="nvMailClient" required />
+					<input type="email" name="nvMailClient" id="nvMailClient" required />
 				</p>
 				<p>
 					<label for="Profession">Profession : </label>
