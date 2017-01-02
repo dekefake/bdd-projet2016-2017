@@ -3,7 +3,23 @@
 require_once('controlleur/controlleur.php');
 
 try{
-	if(isset($_POST['pseudo']) && isset($_POST['pseudo'])){
+
+
+	if(isset($_POST['boutonModifClient'])){
+			$nom = $_POST['modifNomClient'];
+			$prenom = $_POST['modifPrenomClient'];
+			$date = $_POST['modifDateClient'];
+			$adresse = $_POST['modifAdressClient'];
+			$tel = $_POST['modifTelClient'];
+			$mail = $_POST['modifMailClient'];
+			$profesion = $_POST['modifProfClient'];
+			$situationfamiliale = $_POST['modifSFClient'];
+			$solde = $_POST['modifSoldeClient'];
+			ctlModifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);
+
+		}
+		
+	if(isset($_POST['pseudo']) && isset($_POST['motdepasse'])){
 		$pseudo = $_POST['pseudo'];
 		$motdepasse = $_POST['motdepasse'];
 		if(ctlLogin($pseudo,$motdepasse)){
@@ -13,6 +29,7 @@ try{
 			ctlAccueil();
 			echo 'Mot de passe incorrect.';
 		}
+		
 	}
 	else{
 		ctlAccueil();
