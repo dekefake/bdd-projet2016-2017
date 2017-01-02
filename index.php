@@ -16,8 +16,9 @@ try{
 				$mail = $_POST['modifMailClient'];
 				$profesion = $_POST['modifProfClient'];
 				$situationfamiliale = $_POST['modifSFClient'];
+				$nss=$_POST['modifNSSClient'];
 				$solde = $_POST['modifSoldeClient'];
-				ctlModifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);
+				ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde);
 			}
 			if(isset($_POST['modifClient'])){
 				$nss = $_POST['nssModif'];

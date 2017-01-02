@@ -10,9 +10,9 @@ function ctlLogin($pseudo,$password){
 		afficherErreur($e);
 	}
 }
-function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde){
+function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde){
 	require_once('modele/modeleAgent.php');
-	updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);
+	updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde);
 }
 
 function ctlAgent($pseudo,$motdepasse){

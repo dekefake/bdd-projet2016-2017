@@ -5,7 +5,7 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 
 	try{
 		$connexion=getConnect();
-		$requete="INSERT INTO Clients VALUES('".$nom."','".$prenom."','".$dateNaissance."','".$adresse."','".$numTel."','".$mail."','".$profession."','".$situationFamiliale."','"."','".$clientNSS."','".$solde."')";
+		$requete="INSERT INTO Clients VALUES('".$nom."','".$prenom."','".$dateNaissance."','".$adresse."','".$numTel."','".$mail."','".$profession."','".$situationFamiliale."','".$clientNSS."','".$solde."')";
 		$resultat=$connexion->query($requete);
 		$resultat->closeCursor();
 
@@ -15,12 +15,12 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 	}
 }
 
-function updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde){
+function updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$situationFamiliale,$nss,$solde){
 	require_once('modele/modeleAccueil.php');
 
 	try{
 		$connexion=getConnect();
-		$requete="UPDATE Clients VALUES('".$nom."','".$prenom."','".$dateNaissance."','".$adresse."','".$numTel."','".$mail."','".$profession."','".$situationFamiliale."','"."','".$clientNSS."','".$solde."')";
+		$requete="UPDATE Clients VALUES('".$nom."','".$prenom."','".$date."','".$adresse."','".$tel."','".$mail."','".$profession."','".$situationFamiliale."','".$clientNSS."','".$solde."')";
 		$resultat=$connexion->query($requete);
 		$resultat->closeCursor();
 
