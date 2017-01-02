@@ -7,6 +7,9 @@ try{
 		$pseudo = $_POST['pseudo'];
 		$motdepasse = $_POST['motdepasse'];
 		if(ctlLogin($pseudo,$motdepasse)){
+			if(isset($_POST['modifClient'])){
+				modifClient($_POST['nssModif'],$pseudo,$motdepasse);
+			}
 			if(isset($_POST['boutonModifClient'])){
 				$nom = $_POST['modifNomClient'];
 				$prenom = $_POST['modifPrenomClient'];
@@ -23,12 +26,12 @@ try{
 			if(isset($_POST['logOut'])) ctlAccueil();
 
 			if(isset($_POST['boutonCreerActe'])){
-			$intitule = $_POST['intitule'];
-			$categorie = $_POST['categorie'];
-			$prix = $_POST['prix'];
-			$consigne = $_POST['consigne'];
-			ctlCreerActe($intitule,$categorie,$prix,$consigne);
-		}
+				$intitule = $_POST['intitule'];
+				$categorie = $_POST['categorie'];
+				$prix = $_POST['prix'];
+				$consigne = $_POST['consigne'];
+				ctlCreerActe($intitule,$categorie,$prix,$consigne);
+			}
 
 			if(isset($_POST['synthesePatient'])){
 				$nss = $_POST['nssSynthese'];
@@ -36,35 +39,34 @@ try{
 			}
 			
 			if(isset($_POST['boutonAjouterClient'])){
-			$nom = $_POST['nvNomClient'];
-			$prenom = $_POST['nvPrenomClient'];
-			$date = $_POST['nvDateClient'];
-			$adresse = $_POST['nvAdressClient'];
-			$tel = $_POST['nvTelClient'];
-			$mail = $_POST['nvMailClient'];
-			$profession = $_POST['nvProfClient'];
-			$sf = $_POST['nvSFClient'];
-			$nss = $_POST['nvNSSClient'];
-			$solde = $_POST['nvSoldeClient'];
-			ctlAjouterClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf,$nss,$solde);
-			}
-			if(isset($_POST['synthesePatient'])){
-				$nss = $_POST['nssSynthese'];
-				try{
-					$patient = getClient($nss);
-					$historique = getHistoriqueClient($nss);
-					CtlAfficherSynthese($patient,$historique);
-				}catch(Exception $e){
-					afficherErreurAgent($e);
+				$nom = $_POST['nvNomClient'];
+				$prenom = $_POST['nvPrenomClient'];
+				$date = $_POST['nvDateClient'];
+				$adresse = $_POST['nvAdressClient'];
+				$tel = $_POST['nvTelClient'];
+				$mail = $_POST['nvMailClient'];
+				$profession = $_POST['nvProfClient'];
+				$sf = $_POST['nvSFClient'];
+				$nss = $_POST['nvNSSClient'];
+				$solde = $_POST['nvSoldeClient'];
+				ctlAjouterClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf,$nss,$solde);
 				}
+				if(isset($_POST['synthesePatient'])){
+					$nss = $_POST['nssSynthese'];
+					try{
+						$patient = getClient($nss);
+						$historique = getHistoriqueClient($nss);
+						CtlAfficherSynthese($patient,$historique);
+					}catch(Exception $e){
+						afficherErreurAgent($e);
+					}
+				}
+				ctlBonnePage($pseudo,$motdepasse);
+			}else{
+				ctlAccueil();
+				echo 'Mot de passe incorrect.';
 			}
-			ctlBonnePage($pseudo,$motdepasse);
 		}else{
-			ctlAccueil();
-			echo 'Mot de passe incorrect.';
-		}
-	}
-	else{
 		ctlAccueil();
 	}
 }

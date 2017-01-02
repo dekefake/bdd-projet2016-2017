@@ -1,8 +1,6 @@
 <?php
-
+require_once('modele/modeleAccueil.php');
 function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profession,$situationFamiliale,$clientNSS,$solde){
-	require_once('modele/modeleAccueil.php');
-
 	try{
 		$connexion=getConnect();
 		$requete="INSERT INTO Clients VALUES('".$nom."','".$prenom."','".$dateNaissance."','".$adresse."','".$numTel."','".$mail."','".$profession."','".$situationFamiliale."','".$clientNSS."','".$solde."')";
@@ -16,14 +14,11 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 }
 
 function updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$situationFamiliale,$nss,$solde){
-	require_once('modele/modeleAccueil.php');
-
 	try{
 		$connexion=getConnect();
 		$requete="UPDATE Clients SET Nom='$nom', Prenom='$prenom', DateNaissance='$date', Adresse='$adresse', NumTel='$tel', Mail='$mail', Profession='$profession', SituationFamiliale='$situationFamiliale', ClientNSS='$nss', Solde='$solde' WHERE ClientNSS='$nss'";
 		$resultat=$connexion->query($requete);
 		$resultat->closeCursor();
-
 	}
 	catch(Exception $e){
 		exit($e->getMessage());
@@ -31,7 +26,6 @@ function updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$situat
 }
 
 function getClient($nss){
-	require_once('modele/modeleAccueil.php');
 	try{
 		$connexion=getConnect();
 		$resultat=$connexion->query("SELECT * FROM Clients WHERE ClientNSS='$nss'");
@@ -46,7 +40,6 @@ function getClient($nss){
 }
 
 function getNssClient($nom,$dateNaissance){
-	require_once('modele/modeleAccueil.php');
 	try{
 		$connexion=getConnect();
 		$resultat=$connexion->query("SELECT * FROM Clients WHERE Nom='$nom' AND dateNaissance='dateNaissance'");
@@ -62,7 +55,6 @@ function getNssClient($nom,$dateNaissance){
 }
 
 function getHistoriqueClient($nss){
-	require_once('modele/modeleAccueil.php');
 	try{
 		$connexion=getConnect();
 		$resultat=$connexion->query("SELECT * FROM `Rendez-vous` NATURAL JOIN Actes NATURAL JOIN Employes WHERE ClientNSS=".$nss." AND Categorie='Medecin'");
@@ -76,7 +68,6 @@ function getHistoriqueClient($nss){
 }
 
 function setSolde($nss,$montant){
-	require_once('modele/modeleAccueil.php');
 	try{
 		$client = get_client($nss);
 		if(($client->Solde+$montant)<0) throw new Exception('Solde insuffisant, opération annulée.');
@@ -93,7 +84,6 @@ function setSolde($nss,$montant){
 }
 
 function getRDVEnAttente(){
-	require_once('modele/modeleAccueil.php');
 	try{
 		$connexion=getConnect();
 		$resultat=$connexion->query("SELECT * FROM Rendez-vous WHERE Paye=false");

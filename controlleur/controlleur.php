@@ -12,7 +12,6 @@ function ctlLogin($pseudo,$password){
 	}
 }
 function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde){
-	require_once('modele/modeleAgent.php');
 	updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde);
 }
 
@@ -20,6 +19,7 @@ function ctlAjouterClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf
 	require_once('modele/modeleAgent.php');
 	nouveauClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf,$nss,$solde);
 }
+
 
 function ctlCreerActe($intitule,$categorie,$prix,$consigne){
 	if ($prix<0){

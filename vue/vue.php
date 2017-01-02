@@ -57,7 +57,9 @@ function modifClient($nss,$pseudo,$motdepasse){
 	require_once('modele/modeleAgent.php');
 	$client= getClient($nss);
 	echo '
-					<fieldset><form method="post" action="#"><select><p>
+					<h3>Modifier client : NSS n°'.$client->ClientNSS.'</h3>
+					<fieldset><form method="post" action="#">
+					<p>
 						<label for="Nom">Nom du client : </label>
 						<input type="text" name="modifNomClient" id="nvNomClient" value="'. $client->Nom .'" required />
 					</p>
@@ -98,7 +100,7 @@ function modifClient($nss,$pseudo,$motdepasse){
 					</p>
 					<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>
 					<p>
-		   			<input type ="submit" value="ModifClient" name="boutonModifClient" />
+		   			<input type ="submit" value="Enregistrer" name="boutonModifClient" />
 		   			<input type ="reset" value="ToutEffacer" name ="f1" />
-		   			</p></select></form></fieldset>';
+		   			</p></form></fieldset>';
 }
