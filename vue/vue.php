@@ -37,9 +37,12 @@ function afficherPageAgent($pseudo,$motdepasse){
 }
 
 function afficherSynthese($patient,$historique){
-	$contenu='<h3>Synthèse du patient '.$patient->ClientNSS.' </h3><table><ul><li>Nom : '.$patient->Nom.'</li><li>Prénom : '.$patient->Prenom.'</li><li>Date de naissance : '.$patient->DateNaissance.'</li><li>Adresse : '.$patient->Adresse.'</li><li>Numéro de téléphone : '.$patient->NumTel.'</li><li>Adresse mail : '.$patient->Mail.'</li><li>Profession : '.$patient->Profession.'</li><li>Situation familiale : '.$patient->SituationFamiliale.'</li><li>NSS : '.$patient->ClientNSS.'</li><li>Solde : '.$patient->Solde.'€</li></ul><h5>Historique des consultations et actes</h5><table><tr><th>Médecin</th><th>Date</th><th>Prix</th><th>Compte rendu</th><th>Suivi</th></tr>';
-	foreach($historique as $acte){
-		$contenu.='<tr><td>'.$acte->Login.'</td><td>'.$acte->Date.'</td><td>'.$acte->Prix.'</td><td>'.$acte->CompteRendu.'</td><td>'.$acte->Suivi.'</td></tr>';
+	$contenu='<h3>Synthèse du patient n°'.$patient->ClientNSS.' </h3><ul><li>Nom : '.$patient->Nom.'</li><li>Prénom : '.$patient->Prenom.'</li><li>Date de naissance : '.$patient->DateNaissance.'</li><li>Adresse : '.$patient->Adresse.'</li><li>Numéro de téléphone : '.$patient->NumTel.'</li><li>Adresse mail : '.$patient->Mail.'</li><li>Profession : '.$patient->Profession.'</li><li>Situation familiale : '.$patient->SituationFamiliale.'</li><li>NSS : '.$patient->ClientNSS.'</li><li>Solde : '.$patient->Solde.'€</li></ul>';
+	if($historique!=null){
+		$contenu.='<h5>Historique des consultations et actes</h5><table><tr><th>Médecin</th><th>Date</th><th>Prix</th><th>Compte rendu</th><th>Suivi</th></tr>';
+		foreach($historique as $acte){
+			$contenu.='<tr><td>'.$acte->Login.'</td><td>'.$acte->Date.'</td><td>'.$acte->Prix.'</td><td>'.$acte->CompteRendu.'</td><td>'.$acte->Suivi.'</td></tr>';
+		}
 	}
 	$contenu.='</table>';
 	echo $contenu;
