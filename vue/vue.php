@@ -16,14 +16,14 @@ function afficherPageDirecteur($pseudo,$motdepasse){
 	require_once('vue/pageDirecteur.php');
 }
 
-function afficherPageMedecin(){
+function afficherPageMedecin($pseudo,$motdepasse){
 	$contenu="";
 	require_once('vue/pageMedecin.php');
 }
 
 
 
-function afficherPageAgent(){
+function afficherPageAgent($pseudo,$motdepasse){
 	$contenu='';
 	require_once('vue/pageAgent.php');
 }

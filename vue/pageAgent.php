@@ -37,29 +37,32 @@
 						<input type="text" name="nvAdressClient" id="nvAdress"Client" required />
 					</p>
 					<p>
-						<label for="NumTel">"Numero de Telephone : </label>"
+						<label for="NumTel">Numero de Telephone : </label>
 						<input type="tel" name="nvTelClient" id="nvTelClient" required />
 					</p>
 					<p>
-						<label for="Mail">"Mail : </label>"
+						<label for="Mail">Mail : </label>
 						<input type="Mail" name="nvMailClient" id="nvMailClient" required />
 					</p>
 					<p>
-						<label for="Profession">"Profession : </label>"
+						<label for="Profession">Profession : </label>
 						<input type="text" name="nvProfClient" id="nvProfClient">
 					</p>
 					<p>
-						<label for="SituationFamilliale">"Situation Familliale : </label>"
+						<label for="SituationFamilliale">Situation Familliale : </label>
 						<input type="text" name="nvSFClient" id="nvSFClient">
 					</p>
 					<p>
-						<label for="NSS">"Numéro de Sécuritée Sociale : </label>"
+						<label for="NSS">Numéro de Sécuritée Sociale : </label>
 						<input type="text" name="nvNSSClient" id="nvNSSclient">
 					</p>
 					<p>
-						<label for="Solde">"Solde : </label>"
+						<label for="Solde">Solde : </label>
 						<input type="number" name="nvSoldeClient" id="nvSoldeClient">
 					</p>
+					<?php
+       					echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+	   				?>
 
 					<p>
 		   			<input type ="submit" value="AjouterClient" name="boutonAjouterClient" />
@@ -74,6 +77,9 @@
 				<p>
 					<label for="nss">NSS du patient : </label>
 					<input type="text" name="nssSynthese" id="nssSynthese" required />
+					<?php
+       					echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+	   				?>
 					<input type ="submit" value="Synthèse patient" name="synthesePatient" />
 				</p>
 			</fieldset>

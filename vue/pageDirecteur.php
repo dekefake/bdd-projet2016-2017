@@ -61,6 +61,9 @@
 	   			<label for="login">Login : </label>
        			<input type="text" name="login" id="login" required />
 			</p>
+					<?php
+       					echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+	   				?>
 			<p>
 				<input type ="submit" value="Chercher" name="boutonChercher" />
 	   		</p>

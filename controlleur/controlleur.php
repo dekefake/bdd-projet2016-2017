@@ -24,7 +24,7 @@ function ctlAgent($pseudo,$motdepasse){
 		}
 	}
 	else if(isset($_POST['logOut'])) ctlAccueil();
-	else afficherPageAgent();
+	else afficherPageAgent($pseudo,$motdepasse);
 
 	
 }
@@ -36,7 +36,7 @@ function CtlModifierEmploye($pseudo,$motdepasse){
 
 function ctlMedecin($pseudo,$motdepasse){
 	require_once('modele/modeleMedecin.php');
-	afficherPageMedecin();
+	afficherPageMedecin($pseudo,$motdepasse);
 }
 
 function ctlDirecteur($pseudo,$motdepasse){

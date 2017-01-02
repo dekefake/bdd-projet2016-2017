@@ -15,7 +15,7 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 	}
 }
 
-function modifClient($nss){
+function modifClient($nss,$pseudo,$motdepasse){
 	require_once('modele/modeleAccueil.php');
 	$client= getClient($nss);
 	$ligne='
@@ -63,8 +63,7 @@ function modifClient($nss){
 					<p>
 		   			<input type ="submit" value="ModifClient" name="boutonModifClient" />
 		   			<input type ="reset" value="ToutEffacer" name ="f1" />
-		   			</p></select></form></fieldset>
-	';
+		   			</p></select></form></fieldset>';
 }
 
 function getClient($nss){
