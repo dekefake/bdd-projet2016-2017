@@ -28,3 +28,17 @@
 
 	
 	}
+	function getEmploye($pseudo){
+	require_once('modele/modeleAccueil.php');
+	try{
+		$connexion=getConnect();
+		$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='$login'");
+	}catch(Exception $e){
+		afficherErreur($e);
+	}
+	if($resultat->rowCount()==0) throw new Exception('Cet employé n\'existe pas');
+	$resultat->setFetchMode(PDO::FETCH_OBJ);
+	$employe = $resultat->fetch();
+	$resultat->closeCursor();
+	return($employe);
+}
