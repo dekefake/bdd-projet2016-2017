@@ -19,7 +19,7 @@ function ctlCreerActe($intitule,$categorie,$prix,$consigne){
 	if ($prix<0){
 		echo 'Prix negatif'
 	}else{
-		ctlCreerActe($intitule,$categorie,$prix,$consigne);
+		creerActe($intitule,$categorie,$prix,$consigne);
 	}
 }
 
