@@ -20,7 +20,7 @@
 		   			<input type="password" name="motdepasse" id="motdepasse" required />
 		   		</p>
 		   		<p>
-		   			<input type="submit" value="Connexion" name="submit" />
+		   			<input type="submit" value="connexion" name="connexion" />
 		   			<input type="reset" value="ToutEffacer" name="ToutEffacer" />
 		   		</p>
 				</form>

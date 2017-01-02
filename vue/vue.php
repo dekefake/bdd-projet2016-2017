@@ -11,7 +11,7 @@ function afficherFormulaire(){
 }
 
 
-function afficherPageDirecteur(){
+function afficherPageDirecteur($pseudo,$motdepasse){
 	$contenu="";
 	require_once('vue/pageDirecteur.php');
 }

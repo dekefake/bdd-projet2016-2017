@@ -17,37 +17,37 @@
 	   	<fieldset>
 	   		<legend>Ajouter un nouvel employé</legend>
 	   		<p>
-	   			<label for="pseudo">Nouveau pseudo : </label>
-       			<input type="text" name="pseudo" id="pseudo" required />
+	   			<label for="nvnvpseudo">Nouveau pseudo : </label>
+       			<input type="text" name="nvpseudo" id="nvpseudo" required />
 			</p>
 			<p>
        			<label for="mdp">Mot de passe : </label>
-       			<input type="password" name="mdp" id="mdp" required />
+       			<input type="password" name="nvmdp" id="nvmdp" required />
        		</p>
        		<p>
-       			<label for="verifmdp">Veuillez verifier le mot de passe : </label>
-       			<input type="password" name="verifmdp" id="verifmdp" required />
+       			<label for="nvverifmdp">Veuillez verifier le mot de passe : </label>
+       			<input type="password" name="nvverifmdp" id="nvverifmdp" required />
        		</p>
        		<p>
 	       		<label for="categorie">Categorie : </label>
 	       	
-	       		<input type="radio" name="categorie" value="agent" id="agent" />
+	       		<input type="radio" name="categorie" value="nvagent" id="nvagent" />
 	       		<label for="agent">Agent </label><br />
 
-	      		<input type="radio" name="categorie" value="medecin" id="medecin" />
+	      		<input type="radio" name="categorie" value="nvmedecin" id="nvmedecin" />
 	      		<label for="medecin">Medecin </label><br />
 
-	      		<input type="radio" name="categorie" value="directeur" id="directeur" /> 
+	      		<input type="radio" name="categorie" value="nvdirecteur" id="nvdirecteur" /> 
 	      		<label for="directeur">Directeur </label><br />
        		</p>
+       			<?php
+       			echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+	   			?>
 
        		<p>
 	   			<input type ="submit" value="Ajouter" name="boutonAjouterLogin" />
 	   			<input type ="reset" value="ToutEffacer" name ="f1" />
 	   		</p>
-	   	<?php //TODO
-
-	   	?>
 		</fieldset>
 	</form>
 
