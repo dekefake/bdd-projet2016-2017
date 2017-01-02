@@ -53,7 +53,7 @@
 						<input type="text" name="nvSFClient" id="nvSFClient">
 					</p>
 					<p>
-						<label for="NSS">Numéro de Sécuritée Sociale : </label>
+						<label for="NSS">Numéro de Sécurité Sociale : </label>
 						<input type="text" name="nvNSSClient" id="nvNSSclient">
 					</p>
 					<p>
