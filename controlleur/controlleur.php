@@ -1,6 +1,7 @@
  <?php 
 require_once('modele/modeleAccueil.php');
 require_once('vue/vue.php');
+require_once('modele/modeleAgent.php');
 
 function ctlLogin($pseudo,$password){
 	try{
@@ -16,7 +17,6 @@ function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situ
 }
 
 function ctlAgent($pseudo,$motdepasse){
-	require_once('modele/modeleAgent.php');
 	if(isset($_POST['synthesePatient'])){
 		$nss = $_POST['nssSynthese'];
 		try{
@@ -69,5 +69,10 @@ function ctlBonnePage($pseudo,$motdepasse){
 			echo "<p>Desolé, vous ne semblez pas etre un employé de la clinique.</p>";
 			break;
 	}
+}
+
+function CtlAfficherSynthese($nss){
+	$client=getClient($nss);
+	afficherSynthese($client,null);
 }
 

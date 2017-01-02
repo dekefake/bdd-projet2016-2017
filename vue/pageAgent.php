@@ -11,8 +11,7 @@
 		<h1>Page des agents</h1>
 		<p><?php
 			echo 'Connecté en tant que '.$_POST['pseudo'].'.';
-		?></p>
-		<?php echo $contenu ?>
+		?><br><br></p>
 		<form name="synthese" action="#" method="post">
 
 
