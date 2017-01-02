@@ -10,9 +10,9 @@ function ctlLogin($pseudo,$password){
 		afficherErreur($e);
 	}
 }
-function ctlModifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);{
-	require_once('modele/modeleAgent');
-	modifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);
+function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde){
+	require_once('modele/modeleAgent.php');
+	updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);
 }
 
 function ctlAgent($pseudo,$motdepasse){
@@ -34,7 +34,7 @@ function ctlAgent($pseudo,$motdepasse){
 }
 function CtlModifierEmploye($pseudo,$motdepasse){
 	//VERIFIER QUE LOGIN EST BIEN COMPRIS DANS LES TABLES
-	require_once('modele/modeleDirecteur');
+	require_once('modele/modeleDirecteur.php');
 	modifierEmploye($login);
 }
 
