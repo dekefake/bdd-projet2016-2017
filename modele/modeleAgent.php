@@ -20,7 +20,7 @@ function updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$situat
 
 	try{
 		$connexion=getConnect();
-		$requete="UPDATE Clients VALUES('".$nom."','".$prenom."','".$date."','".$adresse."','".$tel."','".$mail."','".$profession."','".$situationFamiliale."','".$clientNSS."','".$solde."')";
+		$requete="UPDATE Clients SET Nom='$nom', Prenom='$prenom', DateNaissance='$date', Adresse='$adresse', NumTel='$tel', Mail='$mail', Profession='$profession', SituationFamiliale='$situationFamiliale', ClientNSS='$nss', Solde='$solde' WHERE ClientNSS='$nss'";
 		$resultat=$connexion->query($requete);
 		$resultat->closeCursor();
 
