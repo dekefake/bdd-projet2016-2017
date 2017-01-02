@@ -12,7 +12,7 @@ function ctlLogin($pseudo,$password){
 }
 function ctlModifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);{
 	require_once('modele/modeleAgent');
-	ModifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);
+	modifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);
 }
 
 function ctlAgent($pseudo,$motdepasse){
