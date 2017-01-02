@@ -1,7 +1,6 @@
 <?php
 	
 	require_once('modele/modeleAccueil.php');
-
 	function nouvelActe($intitule,$specialite,$prix,$consignes){
 		try{
 			$connexion=getConnect();
@@ -11,7 +10,6 @@
 		}
 		$resultat->closeCursor();
 	}
-
 	function nouvelEmploye($login,$mdp,$categorie,$specialite){
 		try{
 			$connexion=getConnect();
@@ -21,10 +19,23 @@
 		}
 		$resultat->closeCursor();
 	}
-
 	function modifierEmploye($login){
-
 		require_once('modele/modeleAccueil.php');
-
 	
 	}
+	function getEmploye($pseudo){
+	require_once('modele/modeleAccueil.php');
+	try{
+		$connexion=getConnect();
+		$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='$login'");
+	}catch(Exception $e){
+		afficherErreur($e);
+	}
+	if($resultat->rowCount()==0) throw new Exception('Cet employé n\'existe pas');
+	$resultat->setFetchMode(PDO::FETCH_OBJ);
+	$employe = $resultat->fetch();
+	$resultat->closeCursor();
+	return($employe);
+}
+
+
