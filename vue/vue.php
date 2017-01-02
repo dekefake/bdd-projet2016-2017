@@ -23,8 +23,8 @@ function afficherPageMedecin($pseudo,$motdepasse,$planning){
 		$votrePlanning = "Votre planning est vide.";
 	}else{
 		foreach ($planning as $rdv) {
-		$votrePlanning+="<p>Date : ".$rdv->Date." Heure : ".$rdv->Heure."<br/>"."Client : NSS ".$rdv->ClientNSS." Intitulé : ".$rdv->Intitule."</p>";
-	}
+			$votrePlanning+="<p>Date : ".$rdv->Date." Heure : ".$rdv->Heure."<br/>"."Client : NSS ".$rdv->ClientNSS." Intitulé : ".$rdv->Intitule."</p>";
+		}
 	}
 	require_once('vue/pageMedecin.php');
 }
@@ -37,7 +37,7 @@ function afficherPageAgent($pseudo,$motdepasse){
 }
 
 function afficherSynthese($patient,$historique){
-	$contenu='<h3>Synthèse du patient n°'.$patient->ClientNSS.' </h3><ul><li>Nom : '.$patient->Nom.'</li><li>Prénom : '.$patient->Prenom.'</li><li>Date de naissance : '.$patient->DateNaissance.'</li><li>Adresse : '.$patient->Adresse.'</li><li>Numéro de téléphone : '.$patient->NumTel.'</li><li>Adresse mail : '.$patient->Mail.'</li><li>Profession : '.$patient->Profession.'</li><li>Situation familiale : '.$patient->SituationFamiliale.'</li><li>NSS : '.$patient->ClientNSS.'</li><li>Solde : '.$patient->Solde.'€</li></ul>';
+	$contenu='<h3>Synthèse du patient n°'.$patient->ClientNSS.' </h3><ul><li>Nom : '.$patient->Nom.'</li><li>Prénom : '.$patient->Prenom.'</li><li>Date de naissance : '.$patient->DateNaissance.'</li><li>Adresse : '.$patient->Adresse.'</li><li>Numéro de téléphone : 0'.$patient->NumTel.'</li><li>Adresse mail : '.$patient->Mail.'</li><li>Profession : '.$patient->Profession.'</li><li>Situation familiale : '.$patient->SituationFamiliale.'</li><li>NSS : '.$patient->ClientNSS.'</li><li>Solde : '.$patient->Solde.'€</li></ul>';
 	if($historique!=null){
 		$contenu.='<h5>Historique des consultations et actes</h5><table><tr><th>Médecin</th><th>Date</th><th>Prix</th><th>Compte rendu</th><th>Suivi</th></tr>';
 		foreach($historique as $acte){

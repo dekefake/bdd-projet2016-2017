@@ -42,7 +42,9 @@ function CtlModifierEmploye($pseudo,$motdepasse){
 
 function ctlMedecin($pseudo,$motdepasse){
 	require_once('modele/modeleMedecin.php');
-	afficherPageMedecin($pseudo,$motdepasse);
+	// $id=getEmploye($pseudo)->ID;
+	// $planning=getPlanning($id);
+	afficherPageMedecin($pseudo,$motdepasse,null);
 }
 
 function ctlDirecteur($pseudo,$motdepasse){
