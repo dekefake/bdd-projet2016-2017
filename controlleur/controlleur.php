@@ -17,17 +17,7 @@ function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situ
 }
 
 function ctlAgent($pseudo,$motdepasse){
-	if(isset($_POST['synthesePatient'])){
-		$nss = $_POST['nssSynthese'];
-		try{
-			$patient = getClient($nss);
-			$historique = getHistoriqueClient($nss);
-			afficherSynthese($patient,$historique);
-		}catch(Exception $e){
-			afficherErreurAgent($e);
-		}
-	}
-	else if(isset($_POST['logOut'])) ctlAccueil();
+	if(isset($_POST['logOut'])) ctlAccueil();
 	else afficherPageAgent($pseudo,$motdepasse);
 
 	
@@ -71,8 +61,7 @@ function ctlBonnePage($pseudo,$motdepasse){
 	}
 }
 
-function CtlAfficherSynthese($nss){
-	$client=getClient($nss);
-	afficherSynthese($client,null);
+function CtlAfficherSynthese($patient,$historique){
+	afficherSynthese($patient,$historique);
 }
 

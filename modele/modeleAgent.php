@@ -65,7 +65,7 @@ function getHistoriqueClient($nss){
 	require_once('modele/modeleAccueil.php');
 	try{
 		$connexion=getConnect();
-		$resultat=$connexion->query("SELECT * FROM Rendez-vous NATURAL JOIN Actes NATURAL JOIN Employes WHERE ClientNSS=".$nss." AND Categorie='Medecin'");
+		$resultat=$connexion->query("SELECT * FROM `Rendez-vous` NATURAL JOIN Actes NATURAL JOIN Employes WHERE ClientNSS=".$nss." AND Categorie='Medecin'");
 	}catch(Exception $e){
 		afficherErreur($e);
 	}

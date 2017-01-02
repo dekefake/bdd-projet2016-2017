@@ -22,7 +22,13 @@ try{
 			}
 			if(isset($_POST['synthesePatient'])){
 				$nss = $_POST['nssSynthese'];
-				CtlAfficherSynthese($nss);
+				try{
+					$patient = getClient($nss);
+					$historique = getHistoriqueClient($nss);
+					CtlAfficherSynthese($patient,$historique);
+				}catch(Exception $e){
+					afficherErreurAgent($e);
+				}
 			}
 			ctlBonnePage($pseudo,$motdepasse);
 		}else{
