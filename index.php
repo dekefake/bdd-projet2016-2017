@@ -31,13 +31,7 @@ try{
 				$prix = $_POST['prix'];
 				$consigne = $_POST['consigne'];
 				ctlCreerActe($intitule,$categorie,$prix,$consigne);
-			}
-
-			if(isset($_POST['synthesePatient'])){
-				$nss = $_POST['nssSynthese'];
-				ctlSynthese($nss);
-			}
-			
+			}			
 			if(isset($_POST['boutonAjouterClient'])){
 				$nom = $_POST['nvNomClient'];
 				$prenom = $_POST['nvPrenomClient'];
