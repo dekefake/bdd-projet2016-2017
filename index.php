@@ -28,7 +28,20 @@ try{
 			$prix = $_POST['prix'];
 			$consigne = $_POST['consigne'];
 			ctlCreerActe($intitule,$categorie,$prix,$consigne);
-		}
+			}
+
+			if(isset($_POST['boutonAjouterLogin'])){
+				$log = $_POST['nvpseudo'];
+				$pass = $_POST['nvmdp'];
+				$categorie = $_POST['nvcategorie'];
+				if($categorie=='Medecin'){
+					$specialite = $_POST['nvspecialite'];
+					ctlAjouterMedecin($log,$pass,$categorie,$specialite);
+				}
+				else{
+					ctlAjouterEmploye($log,$pass,$categorie);
+				}
+			}
 
 			if(isset($_POST['synthesePatient'])){
 				$nss = $_POST['nssSynthese'];

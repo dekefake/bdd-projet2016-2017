@@ -11,6 +11,17 @@ function ctlLogin($pseudo,$password){
 		afficherErreur($e);
 	}
 }
+
+function ctlAjouterMedecin($login,$mdp,$categorie,$specialite){
+	require_once('modele/modeleDirecteur.php');
+	nouveauMedecin($login,$mdp,$categorie,$specialite);
+}
+
+function ctlAjouterEmploye($login,$mdp,$categorie){
+	require_once('modele/modeleDirecteur.php');
+	nouvelEmploye($login,$mdp,$categorie);
+}
+
 function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde){
 	require_once('modele/modeleAgent.php');
 	updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde);

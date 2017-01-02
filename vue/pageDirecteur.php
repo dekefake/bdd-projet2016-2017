@@ -29,19 +29,22 @@
        			<input type="password" name="nvverifmdp" id="nvverifmdp" required />
        		</p>
        		<p>
-	       		<label for="categorie">Categorie : </label>
+	       		<label for="nvcategorie">Categorie : </label>
+	       		<br/>
 	       	
-	       		<input type="radio" name="categorie" value="nvagent" id="nvagent" />
+	       		<input type="radio" name="nvcategorie" value="Agent" id="nvagent" />
 	       		<label for="agent">Agent </label><br />
 
-	      		<input type="radio" name="categorie" value="nvmedecin" id="nvmedecin" />
-	      		<label for="medecin">Medecin </label><br />
+	      		<input type="radio" name="nvcategorie" value="Medecin" id="nvmedecin" />
+	      		<label for="medecin">Medecin  -  </label>
+	      		<label for="nvspecialite"> Spécialité : </label><input type="text" name="nvspecialite" id="nvspecialite" /><br />
 
-	      		<input type="radio" name="categorie" value="nvdirecteur" id="nvdirecteur" /> 
+	      		<input type="radio" name="nvcategorie" value="Directeur" id="nvdirecteur" /> 
 	      		<label for="directeur">Directeur </label><br />
        		</p>
        			<?php
-       			echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+
+       			echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>';
 	   			?>
 
        		<p>
