@@ -28,6 +28,11 @@ function ctlAgent(){
 
 	
 }
+CtlModifierEmploye($login){
+	//VERIFIER QUE LOGIN EST BIEN COMPRIS DANS LES TABLES
+	require_once('modele/modeleDirecteur');
+	modifierEmploye($login);
+}
 
 function ctlMedecin(){
 	require_once('modele/modeleMedecin.php');

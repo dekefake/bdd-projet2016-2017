@@ -69,7 +69,7 @@
 		   			if (isset($_POST['boutonChercher'])){
 		   				echo '<p>Maintnenant faites vos changements </p>';
 		   				$login=$_POST['login'];
-		   				modifierEmploye($login); //TODO (affiche un  formulaire avec dans chaque label les parametres qu'on avait deja)
+		   				CtlModifierEmploye($login); //TODO (affiche un  formulaire avec dans chaque label les parametres qu'on avait deja)
 		   			}
 		   		?>
 	   		</p>

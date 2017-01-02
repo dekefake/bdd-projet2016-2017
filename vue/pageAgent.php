@@ -14,6 +14,61 @@
 		?></p>
 		<?php echo $contenu ?>
 		<form name="synthese" action="#" method="post">
+
+
+
+		<form name="NouveauClient" id="NouveauClient" action="#" method="post">
+			<fieldset>
+					<legend> Créer un patient </legend>
+					<p>
+						<label for="Nom">Nom du client : </label>
+						<input type="text" name="nvNomClient" id="nvNomClient" required />
+					</p>
+					<p>
+						<label for="Prenom">Prenom du client : </label>
+						<input type="text" name="nvPrenomClient" id="nvPrenomClient" required />
+					</p>
+					<p>
+						<label for="BithdayDate">Date de naissance : </label>
+						<input type="Date" name="nvDateClient" id="nvDateClient" required />
+					</p>
+					<p>
+						<label for="Adresse">Adresse : </label>
+						<input type="text" name="nvAdressClient" id="nvAdress"Client" required />
+					</p>
+					<p>
+						<label for="NumTel">"Numero de Telephone : </label>"
+						<input type="tel" name="nvTelClient" id="nvTelClient" required />
+					</p>
+					<p>
+						<label for="Mail">"Mail : </label>"
+						<input type="Mail" name="nvMailClient" id="nvMailClient" required />
+					</p>
+					<p>
+						<label for="Profession">"Profession : </label>"
+						<input type="text" name="nvProfClient" id="nvProfClient">
+					</p>
+					<p>
+						<label for="SituationFamilliale">"Situation Familliale : </label>"
+						<input type="text" name="nvSFClient" id="nvSFClient">
+					</p>
+					<p>
+						<label for="NSS">"Numéro de Sécuritée Sociale : </label>"
+						<input type="text" name="nvNSSClient" id="nvNSSclient">
+					</p>
+					<p>
+						<label for="Solde">"Solde : </label>"
+						<input type="number" name="nvSoldeClient" id="nvSoldeClient">
+					</p>
+
+					<p>
+		   			<input type ="submit" value="AjouterClient" name="boutonAjouterClient" />
+		   			<input type ="reset" value="ToutEffacer" name ="f1" />
+		   			</p>
+				</fieldset>
+			</form>
+
+
 			<fieldset>
 				<legend> Afficher la synthèse d'un patient</legend>
 				<p>
