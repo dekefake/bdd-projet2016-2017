@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 require_once('modele/modeleAccueil.php');
 require_once('vue/vue.php');
 
@@ -9,6 +9,10 @@ function ctlLogin($pseudo,$password){
 	catch(Exception $e){
 		afficherErreur($e);
 	}
+}
+function ctlModifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);{
+	require_once('modele/modeleAgent');
+	ModifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);
 }
 
 function ctlAgent($pseudo,$motdepasse){

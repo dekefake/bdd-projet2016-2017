@@ -15,6 +15,21 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 	}
 }
 
+function modifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde){
+	require_once('modele/modeleAccueil.php');
+
+	try{
+		$connexion=getConnect();
+		$requete="UPDATE Clients VALUES('".$nom."','".$prenom."','".$dateNaissance."','".$adresse."','".$numTel."','".$mail."','".$profession."','".$situationFamiliale."','"."','".$clientNSS."','".$solde."')";
+		$resultat=$connexion->query($requete);
+		$resultat->closeCursor();
+
+	}
+	catch(Exception $e){
+		exit($e->getMessage());
+	}
+}
+
 function modifClient($nss,$pseudo,$motdepasse){
 	require_once('modele/modeleAccueil.php');
 	$client= getClient($nss);
