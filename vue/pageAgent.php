@@ -71,6 +71,14 @@
 				</fieldset>
 			</form>
 
+			<fieldset>
+				<legend> Modifier un patient</legend>
+				<p>
+					<label for="nss">NSS du patient : </label>
+					<input type="text" name="nssSynthese" id="nssSynthese" required />
+					<input type ="submit" value="Chercher" name="rechercheClient" />
+				</p>
+			</fieldset>
 
 			<fieldset>
 				<legend> Afficher la synthèse d'un patient</legend>

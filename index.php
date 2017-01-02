@@ -15,6 +15,13 @@ try{
 			$solde = $_POST['modifSoldeClient'];
 			ctlModifClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$solde);
 		}
+	if(isset($_POST['rechercheClient'])){
+		$nss = $_POST['modifNomClient'];
+		modifClient($nss,$_POST['pseudo'],$_POST['motdepasse']){
+$motdepasse){
+
+
+	}
 	if(isset($_POST['pseudo']) && isset($_POST['motdepasse'])){
 		$pseudo = $_POST['pseudo'];
 		$motdepasse = $_POST['motdepasse'];
