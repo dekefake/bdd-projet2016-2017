@@ -16,8 +16,16 @@ function afficherPageDirecteur($pseudo,$motdepasse){
 	require_once('vue/pageDirecteur.php');
 }
 
-function afficherPageMedecin($pseudo,$motdepasse){
+function afficherPageMedecin($pseudo,$motdepasse,$planning){
 	$contenu="";
+	$votrePlanning="";
+	if($planning == null){
+		$votrePlanning = "Votre planning est vide.";
+	}else{
+		foreach ($planning as $rdv) {
+		$votrePlanning+="<p>Date : ".$rdv->Date." Heure : ".$rdv->Heure."<br/>"."Client : NSS ".$rdv->ClientNSS." Intitulé : ".$rdv->Intitule."</p>";
+	}
+	}
 	require_once('vue/pageMedecin.php');
 }
 

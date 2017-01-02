@@ -13,6 +13,12 @@ function getID($nom){
 }
 
 function nouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye){
+
+	$planning = getPlanning($id);
+	foreach($rdv as $planning){
+		if($rdv->date == $date && $rdv->heure == $heure) throw new Exception("Ce médecin n'est pas libre sur cette tranche horraire.");
+	}
+
 	try{
 		$connexion=getConnect();
 		$resultat=$connexion->query("INSERT INTO Rendez-vous VALUES('".$date."','".$heure."','".$ID."','".$NSS."','".$intitule."','".$compteRendu."','".$suivi."','".$paye."')");
@@ -22,25 +28,19 @@ function nouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$
 	$resultat->closeCursor();
 }
 
-function getPlanning($IDMedecin){
-	try{
-		$connexion=getConnect();
-		$resultat=$connexion->query("SELECT * FROM Employes WHERE ID='$IDMedecin'");
-		if($resultat->rowCount()==0 || $resultat->categorie!='Medecin') 
-			throw new Exception(' medecin n\'existe pas');
-		$resultat->setFetchMode(PDO::FETCH_OBJ);
-	}catch (Exception $e){
-		afficherErreur($e); //FAIRE LA METHODE 
+function crenauLibre($id,$date,$heure){
+	$planning = getPlanning($id);
+	foreach($rdv as $planning){
+		if($rdv->Date == $date && $rdv->Heure == $heure) return False;
 	}
+	return True;
+}
 
-	$resultat=$connexion->query("SELECT * FROM Employes natural join RendezVous) where id='$IDMedecin'order by date");
+function getPlanning($id){
+	$connexion=getConnect();
+	$resultat=$connexion->query("SELECT * FROM Rendez-vous WHERE ID='".$id."'ORDER BY Date");
 	$resultat->setFetchMode(PDO::FETCH_OBJ);
 	$planning = $resultat->fetchall();
 	$resultat->closeCursor();
 	return($planning);
 }
-
-
-	
-	
-	

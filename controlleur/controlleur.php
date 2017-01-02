@@ -24,11 +24,10 @@ function ctlCreerActe($intitule,$categorie,$prix,$consigne){
 }
 
 function ctlAgent($pseudo,$motdepasse){
-	if(isset($_POST['logOut'])) ctlAccueil();
-	else afficherPageAgent($pseudo,$motdepasse);
-
-	
+	require_once('modele/modeleAgent.php');
+	afficherPageAgent($pseudo,$motdepasse);
 }
+
 function CtlModifierEmploye($pseudo,$motdepasse){
 	//VERIFIER QUE LOGIN EST BIEN COMPRIS DANS LES TABLES
 	require_once('modele/modeleDirecteur.php');
