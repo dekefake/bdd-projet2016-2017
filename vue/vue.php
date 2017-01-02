@@ -49,7 +49,7 @@ function afficherErreurAgent($erreur){
 function modifClient($nss,$pseudo,$motdepasse){
 	require_once('modele/modeleAccueil.php');
 	$client= getClient($nss);
-	$ligne='
+	echo '
 					<fieldset><form method="post" action="#"><select><p>
 						<label for="Nom">Nom du client : </label>
 						<input type="text" name="modifNomClient" id="nvNomClient" value="'. $client->Nom .'" required />
