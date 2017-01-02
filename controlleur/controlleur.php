@@ -17,25 +17,28 @@ function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situ
 
 function ctlAgent($pseudo,$motdepasse){
 	require_once('modele/modeleAgent.php');
-	if(isset($_POST['synthesePatient'])){
-		$nss = $_POST['nssSynthese'];
-		try{
-			$patient = getClient($nss);
-			$historique = getHistoriqueClient($nss);
-			afficherSynthese($patient,$historique);
-		}catch(Exception $e){
-			afficherErreurAgent($e);
-		}
-	}
-	else if(isset($_POST['logOut'])) ctlAccueil();
-	else afficherPageAgent($pseudo,$motdepasse);
-
-	
+	afficherPageAgent($pseudo,$motdepasse);
 }
+
+function ctlSynthese($nss){
+	try{
+		$patient = getClient($nss);
+		$historique = getHistoriqueClient($nss);
+		afficherSynthese($patient,$historique);
+	}catch(Exception $e){
+		afficherErreurAgent($e);
+	}
+}
+
 function CtlModifierEmploye($pseudo,$motdepasse){
 	//VERIFIER QUE LOGIN EST BIEN COMPRIS DANS LES TABLES
 	require_once('modele/modeleDirecteur.php');
 	modifierEmploye($login);
+}
+
+function ctlAjouterClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf,$nss,$solde){
+	require_once('modele/modeleAgent.php');
+	nouveauClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf,$nss,$solde);
 }
 
 function ctlMedecin($pseudo,$motdepasse){

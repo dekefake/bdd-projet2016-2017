@@ -25,6 +25,28 @@ try{
 				modifClient($nss,$_POST['pseudo'],$_POST['motdepasse']);
 			}
 			ctlBonnePage($pseudo,$motdepasse);
+
+			if(isset($_POST['logOut'])) ctlAccueil();
+
+			if(isset($_POST['synthesePatient'])){
+				$nss = $_POST['nssSynthese'];
+				ctlSynthese($nss);
+			}
+			
+			if(isset($_POST['boutonAjouterClient'])){
+			$nom = $_POST['nvNomClient'];
+			$prenom = $_POST['nvPrenomClient'];
+			$date = $_POST['nvDateClient'];
+			$adresse = $_POST['nvAdressClient'];
+			$tel = $_POST['nvTelClient'];
+			$mail = $_POST['nvMailClient'];
+			$profession = $_POST['nvProfClient'];
+			$sf = $_POST['nvSFClient'];
+			$nss = $_POST['nvNSSClient'];
+			$solde = $_POST['nvSoldeClient'];
+			ctlAjouterClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf,$nss,$solde);
+			}
+
 		}else{
 			ctlAccueil();
 			echo 'Mot de passe incorrect.';
