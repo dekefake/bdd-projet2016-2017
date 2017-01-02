@@ -17,7 +17,7 @@ function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situ
 }
 function ctlCreerActe($intitule,$categorie,$prix,$consigne){
 	if ($prix<0){
-		echo 'Prix negatif'
+		echo 'Prix negatif';
 	}else{
 		creerActe($intitule,$categorie,$prix,$consigne);
 	}
