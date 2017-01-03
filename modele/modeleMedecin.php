@@ -7,6 +7,18 @@ function getID($pseudo){
 		$connexion=getConnect();
 		$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='".$pseudo."'");
 		$resultat->setFetchMode(PDO::FETCH_OBJ);
+		//ET LE RETURN MARIN ??
+	}catch (Exception $e){
+		afficherErreur($e); //FAIRE LA METHODE 
+	}
+}
+
+function getPseudo ($ID){
+	try{
+		$connexion=getConnect();
+		$resultat=$connexion->query("SELECT * FROM Employes WHERE ID='".$ID."'");
+		$resultat->setFetchMode(PDO::FETCH_OBJ);
+		//ET LE RETURN MARIN ??
 	}catch (Exception $e){
 		afficherErreur($e); //FAIRE LA METHODE 
 	}

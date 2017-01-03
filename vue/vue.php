@@ -9,7 +9,38 @@ function afficherFormulaire(){
 	$contenu="";
 	require_once('vue/pageAccueil.php');
 }
+function afficherPlanningViaNom(){
+	echo'<form name="afficherPlaning" id="monForm6" action="#" method="post">
+	   			<fieldset>
+	   			<legend>Afficher un planing via nom </legend>
 
+			   		<p>
+			   			<label for="name">Nom du medecin a afficher : </label>
+		       			<input type="text" name="nom" id="nom" required />
+		       		</p>
+
+		       		<p>
+			   			<input type ="submit" value="Afficher" name="boutonAfficherEDTNom" />
+			   		</p>
+			   	</fieldset>
+			</form>
+			'
+}
+function affiherPlanningViaDate(){
+	echo'<form name="afficherPlaning" id="monForm7" action="#" method="post">
+	   			<fieldset>
+		   			<legend>Afficher un planing via date </legend>
+				   		<p>
+				   			<label for="date">Date a rechercher : </label>
+			       			<input type="date" name="Date" id="pseudo" required />
+			       		</p>
+			       		<p>
+				   			<input type ="submit" value="Afficher" name="boutonAfficherEDTDate" />
+				   		</p>
+				</fieldset>
+			</form>
+			'
+}
 
 function afficherPageDirecteur($pseudo,$motdepasse){
 	$contenu="";

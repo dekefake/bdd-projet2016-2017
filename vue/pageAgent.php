@@ -97,6 +97,31 @@
 			</fieldset>
 		</form>
 
+		<form name="choix" id="monForm5" action="#" method="post">
+	   	<fieldset>
+	   		<legend>Afficher un planing </legend>
+
+	   		 <p>
+       			Veuillez choisir par quel méthode afficher un planing<br />
+		    <input type="radio" name="type" value="nom" id="nom" /> 
+		    <label for="nom">Recherche par nom</label>
+		    <br />
+
+		    <input type="radio" name="type" value="date" id="date" /> 
+		    <label for="date">Recherche par date</label>
+       		<br />
+       		<p>
+	   			<input type ="choix" value="choix" name="boutonChoix" />
+	   		</p>
+	   		
+	   		<?php 
+			
+
+	   		//TODO
+	   		 ?>
+	   	</fieldset>
+	</form>
+
 
 		
 		<form name="logout" action="#" method="post">

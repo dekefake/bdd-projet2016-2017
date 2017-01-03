@@ -12,6 +12,34 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 		exit($e->getMessage());
 	}
 }
+function afficherEDTNom($nom){
+	require_once ('modele/modeleMedecin.php')
+	echo '<p> Voici l emploi du temps de'.$nom;
+	try{
+		$connexion=getConnect();
+		$id= getID($nom);
+		$requete=('SELECT * FROM Rendez-vous WHERE MedecinID = $id');
+		$resultat=$connexion->query($requete);
+		while ($donnees = $resultat->fetch()){
+			echo 'Date :'.$donnees['Date'] . '<br />';
+			echo 'Heure :'.$donnees['Heure']. '<br />';
+			echo 'Paye :'.$donnees['Paye']. '<br />';
+			echo 'Intitule :'.$donnees['Intitule']. '<br />';
+			echo 'CompteRendu :'.$donnees['CompteRendu']. '<br />';
+			echo 'Suivi :'.$donnees['Suivi']. '<br />';
+			echo '<br />';
+
+		}
+		$resultat->closeCursor();
+	}
+	catch(Exception $e){
+		exit($e->getMessage());
+	}
+
+}
+function afficherEDTDate($Date){
+	
+}
 
 function updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$situationFamiliale,$nss,$solde){
 	try{

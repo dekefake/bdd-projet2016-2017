@@ -24,6 +24,26 @@ try{
 				ctlnouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye);
 			}
 
+			if(isset($_POST['boutonChoix'])){
+				require_once('vue/vue.php')
+				$type = $_POST['type'];
+				if ($type == "nom" ){
+					afficherPlanningViaNom();
+				}else{
+					affiherPlanningViaDate();
+				}
+			}
+
+			if(isset($_POST['boutonAfficherEDTNom'])){
+				$nom = $_POST['nom'];
+				ctlAfficherEDTNom($nom);
+			}
+
+			if(isset($_POST['boutonAfficherEDTDate'])){
+				$date = $_POST['date'];
+				ctlAfficherEDTNom($date);
+			}
+
 
 			if(isset($_POST['boutonModifClient'])){
 				$nom = $_POST['modifNomClient'];

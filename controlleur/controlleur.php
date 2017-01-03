@@ -2,6 +2,8 @@
 require_once('modele/modeleAccueil.php');
 require_once('vue/vue.php');
 require_once('modele/modeleAgent.php');
+require_once('modele/modeleDirecteur.php');
+require_once('modele/modeleMedecin.php');
 
 function ctlLogin($pseudo,$password){
 	try{
@@ -15,12 +17,17 @@ function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situ
 	updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde);
 }
 
-ctlnouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye){
+function ctlnouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye){
 	if(crenauLibre($id,$date,$heure)){
 		nouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye)
 	}else{
 		echo'Désolé le créneau souhaité n\'est pas libre'
 	}
+}
+
+function ctlAfficherEDTNom($nom){
+	//TODO
+	afficherEDTNom($nom);
 }
 
 function ctlAjouterClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf,$nss,$solde){
