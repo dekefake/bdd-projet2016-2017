@@ -110,9 +110,9 @@
 	<form name="modifier" id="monForm3" action="#" method="post">
 	   	<fieldset>
 	   		<legend>Créer,modifier ou supprimer un element a fournir</legend>
-	   		<p>
-	   				//TODO pour chaques specialité afficher un texte
-	   		</p>
+	   		
+	   				<!-- //TODO pour chaques specialité afficher un texte-->
+	   		
 		</fieldset>
 	</form>
 
@@ -121,7 +121,7 @@
 	   	<fieldset>
 	   		<legend>Créer,modifier ou supprimer un element a fournir</legend>
 	   		<p>
-	   				//TODO pour chaques specialité afficher un texte
+	   				<!--//TODO pour chaques specialité afficher un texte -->
 	   		</p>
 		</fieldset>
 	</form>
