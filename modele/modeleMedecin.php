@@ -22,31 +22,30 @@ function getPseudo ($ID){
 
 function nouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye){
 
-	$planning = getPlanning($id);
-	foreach($rdv as $planning){
-		if($rdv->date == $date && $rdv->heure == $heure) throw new Exception("Ce médecin n'est pas libre sur cette tranche horraire.");
+	$planning = getPlanning($ID);
+	if(!creneauLibre($ID,$date,$heure)){
+		throw new Exception("Ce médecin n'est pas libre sur cette tranche horraire.");
 	}
-
 	try{
 		$connexion=getConnect();
-		$resultat=$connexion->query("INSERT INTO Rendez-vous VALUES('".$date."','".$heure."','".$ID."','".$NSS."','".$intitule."','".$compteRendu."','".$suivi."','".$paye."')");
+		$resultat=$connexion->query("INSERT INTO `Rendez-vous` VALUES('".$date."','".$heure."','".$ID."','".$NSS."','".$intitule."','".$compteRendu."','".$suivi."','".$paye."')");
+		$resultat->closeCursor();
 	}catch (Exception $e){
-		afficherErreur($e); //FAIRE LA METHODE 
+		afficherErreur($e);
 	}
-	$resultat->closeCursor();
 }
 
-function crenauLibre($id,$date,$heure){
+function creneauLibre($id,$date,$heure){
 	$planning = getPlanning($id);
-	foreach($rdv as $planning){
-		if($rdv->Date == $date && $rdv->Heure == $heure) return False;
+	foreach($planning as $rdv){
+		if($rdv->Date == $date && $rdv->Heure == $heure) return false;
 	}
-	return True;
+	return true;
 }
 
 function getPlanning($id){
 	$connexion=getConnect();
-	$resultat=$connexion->query("SELECT * FROM Rendez-vous WHERE ID='".$id."'ORDER BY Date");
+	$resultat=$connexion->query("SELECT * FROM `Rendez-vous` WHERE ID='".$id."'ORDER BY Date");
 	$resultat->setFetchMode(PDO::FETCH_OBJ);
 	$planning = $resultat->fetchall();
 	$resultat->closeCursor();

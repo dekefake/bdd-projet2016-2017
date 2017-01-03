@@ -26,7 +26,7 @@ function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situ
 }
 
 function ctlnouveauRendezVous($date,$heure,$id,$NSS,$intitule,$compteRendu,$suivi,$paye){
-	if(crenauLibre($id,$date,$heure)){
+	if(creneauLibre($id,$date,$heure)){
 		nouveauRendezVous($date,$heure,$id,$NSS,$intitule,$compteRendu,$suivi,$paye);
 	}else{
 		echo'<p>Désolé le créneau souhaité n\'est pas libre</p>';
