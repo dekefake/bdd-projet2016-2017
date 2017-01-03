@@ -24,7 +24,7 @@ function afficherPlanningViaNom(){
 			   		</p>
 			   	</fieldset>
 			</form>
-			'
+			';
 }
 function affiherPlanningViaDate(){
 	echo'<form name="afficherPlaning" id="monForm7" action="#" method="post">
@@ -39,7 +39,7 @@ function affiherPlanningViaDate(){
 				   		</p>
 				</fieldset>
 			</form>
-			'
+			';
 }
 
 function afficherPageDirecteur($pseudo,$motdepasse){

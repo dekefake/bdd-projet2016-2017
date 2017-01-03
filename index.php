@@ -24,7 +24,6 @@ try{
 			}
 
 			if(isset($_POST['boutonChoix'])){
-				require_once('vue/vue.php')
 				$type = $_POST['type'];
 				if ($type == "nom" ){
 					afficherPlanningViaNom();
@@ -109,8 +108,10 @@ try{
 		}else{
 			ctlAccueil();
 			echo 'Mot de passe incorrect.';
+	}
 	}else{
 	ctlAccueil();
+}
 }catch(Exception $e){
 	ctlAccueil();
 	echo '<p>Erreur</p>';

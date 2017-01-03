@@ -27,9 +27,9 @@ function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situ
 
 function ctlnouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye){
 	if(crenauLibre($id,$date,$heure)){
-		nouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye)
+		nouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye);
 	}else{
-		echo'Désolé le créneau souhaité n\'est pas libre'
+		echo'Désolé le créneau souhaité n\'est pas libre';
 	}
 }
 
@@ -39,7 +39,6 @@ function ctlAfficherEDTNom($nom){
 }
 
 function ctlAjouterClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf,$nss,$solde){
-	require_once('modele/modeleAgent.php');
 	nouveauClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf,$nss,$solde);
 }
 
@@ -53,25 +52,21 @@ function ctlCreerActe($intitule,$categorie,$prix,$consigne){
 }
 
 function ctlAgent($pseudo,$motdepasse){
-	require_once('modele/modeleAgent.php');
 	afficherPageAgent($pseudo,$motdepasse);
 }
 
 function CtlModifierEmploye($pseudo,$motdepasse){
 	//VERIFIER QUE LOGIN EST BIEN COMPRIS DANS LES TABLES
-	require_once('modele/modeleDirecteur.php');
 	modifierEmploye($login);
 }
 
 function ctlMedecin($pseudo,$motdepasse){
-	require_once('modele/modeleMedecin.php');
 	// $id=getEmploye($pseudo)->ID;
 	// $planning=getPlanning($id);
 	afficherPageMedecin($pseudo,$motdepasse,null);
 }
 
 function ctlDirecteur($pseudo,$motdepasse){
-	require_once('modele/modeleDirecteur.php');
 	afficherPageDirecteur($pseudo,$motdepasse);
 }
 

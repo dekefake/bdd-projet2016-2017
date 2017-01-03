@@ -13,7 +13,7 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 	}
 }
 function afficherEDTNom($nom){
-	require_once ('modele/modeleMedecin.php')
+	require_once ('modele/modeleMedecin.php');
 	echo '<p> Voici l emploi du temps de'.$nom;
 	try{
 		$connexion=getConnect();
