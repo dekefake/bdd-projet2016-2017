@@ -18,7 +18,7 @@
 			<fieldset>
 				<legend> Ajouter un RDV</legend>
 					<?php  
-					echo '<input type="hiden" name="idMedecin" value="'.getID($pseudo).'"';
+					echo '<input type="hidden" name="idMedecin" value="'.getID($pseudo).'"';
 				 ?>
 				<p>
 					<label for="date">Date : </label>
@@ -34,21 +34,22 @@
 				</p>
 				<p>
 					<label for="compteRendu">Compte rendu: </label>
-					<input type="textarea" name="compteRendu" id="compteRendu"  />
+					<input type="textarea" name="compteRendu" id="compteRendu" required />
 				</p>
 
 				<p>
 					<label for="intitule">Intitulé: </label>
-					<input type="textarea" name="newintitule" id="newintitule" required />
+					<input type="textarea" name="newIntitule" id="newIntitule" required />
 				</p>
 
 				<p>
 					<label for="suivi">Suivi: </label>
 					<input type="textarea" name="suivi" id="suivi"  />
 				</p>
-				
-				
-					<input type ="submit" value="ajouterRDV" name="ajouterRDV" id="ajouterRDV" />
+				<?php
+       				echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+	   			?>
+					<input type ="submit" value="Ajouter le rendez vous" name="ajouterRDV" id="ajouterRDV" />
 				</p>
 			</fieldset>
 		</form>
@@ -57,17 +58,23 @@
 	   	<fieldset>
 	   		<legend>Afficher un planing </legend>
 
-	   		 <p>
-       			Veuillez choisir par quel méthode afficher un planing<br />
+	   		<p>
+       			Veuillez choisir par quel méthode afficher un planing
+       		<br />
 		    <input type="radio" name="type" value="nom" id="nom" /> 
 		    <label for="nom">Recherche par nom</label>
 		    <br />
-
+		    </p>
+		    <p>
 		    <input type="radio" name="type" value="date" id="date" /> 
 		    <label for="date">Recherche par date</label>
        		<br />
+       		</p>
+       		<?php
+       			echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+	   		?>
        		<p>
-	   			<input type ="choix" value="choix" name="boutonChoix" />
+	   			<input type="submit" value="Afficher" name="boutonChoix" id="boutonChoix" />
 	   		</p>
 	   		
 	   		<?php 

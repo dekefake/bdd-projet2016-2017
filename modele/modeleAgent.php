@@ -14,11 +14,11 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 }
 function afficherEDTNom($nom){
 	require_once ('modele/modeleMedecin.php');
-	echo '<p> Voici l emploi du temps de'.$nom;
+	echo '<p> Voici l emploi du temps du Dr. '.$nom.' :<br>';
 	try{
 		$connexion=getConnect();
 		$id= getID($nom);
-		$requete=('SELECT * FROM Rendez-vous WHERE MedecinID = $id');
+		$requete=("SELECT * FROM `Rendez-vous` WHERE MedecinID=$id"); // Un tiret dans le nom de la table -> mettre des quotes du 7 (`````) sinon -> erreur SQL
 		$resultat=$connexion->query($requete);
 		while ($donnees = $resultat->fetch()){
 			echo 'Date :'.$donnees['Date'] . '<br />';

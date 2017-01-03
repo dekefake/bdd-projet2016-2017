@@ -16,19 +16,19 @@ try{
 				$heure = $_POST['newHeure'];
 				$id = $_POST['idMedecin'];
 				$nss = $_POST['newNSSClient'];
-				$CR = $_POST['compterendu'];
+				$CR = $_POST['compteRendu'];
 				$intitule = $_POST['newIntitule'];
 				$suivi = $_POST['suivi'];
 				$paye = false; 
-				ctlnouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye);
+				ctlnouveauRendezVous($date,$heure,$id,$nss,$intitule,$CR,$suivi,$paye);
 			}
 
 			if(isset($_POST['boutonChoix'])){
 				$type = $_POST['type'];
 				if ($type == "nom" ){
-					afficherPlanningViaNom();
+					afficherPlanningViaNom($pseudo,$motdepasse);
 				}else{
-					affiherPlanningViaDate();
+					affiherPlanningViaDate($pseudo,$motdepasse);
 				}
 			}
 
@@ -114,6 +114,6 @@ try{
 }
 }catch(Exception $e){
 	ctlAccueil();
-	echo '<p>Erreur</p>';
+	afficherErreur($e);
 }
 

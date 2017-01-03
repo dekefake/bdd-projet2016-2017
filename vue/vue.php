@@ -1,6 +1,6 @@
 <?php
 function afficherErreur($erreur){
-	$contenu='<p>'.$erreur->getMessage().'</p>';
+	$contenu='<p>Erreur<br>'.$erreur->getMessage().'</p>';
 	require_once('vue/pageAccueil.php');
 	
 }
@@ -9,7 +9,7 @@ function afficherFormulaire(){
 	$contenu="";
 	require_once('vue/pageAccueil.php');
 }
-function afficherPlanningViaNom(){
+function afficherPlanningViaNom($pseudo,$motdepasse){
 	echo'<form name="afficherPlaning" id="monForm6" action="#" method="post">
 	   			<fieldset>
 	   			<legend>Afficher un planing via nom </legend>
@@ -18,7 +18,7 @@ function afficherPlanningViaNom(){
 			   			<label for="name">Nom du medecin a afficher : </label>
 		       			<input type="text" name="nom" id="nom" required />
 		       		</p>
-
+		       		<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>
 		       		<p>
 			   			<input type ="submit" value="Afficher" name="boutonAfficherEDTNom" />
 			   		</p>
@@ -26,7 +26,7 @@ function afficherPlanningViaNom(){
 			</form>
 			';
 }
-function affiherPlanningViaDate(){
+function affiherPlanningViaDate($pseudo,$motdepasse){
 	echo'<form name="afficherPlaning" id="monForm7" action="#" method="post">
 	   			<fieldset>
 		   			<legend>Afficher un planing via date </legend>
@@ -34,6 +34,7 @@ function affiherPlanningViaDate(){
 				   			<label for="date">Date a rechercher : </label>
 			       			<input type="date" name="Date" id="pseudo" required />
 			       		</p>
+			       		<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>
 			       		<p>
 				   			<input type ="submit" value="Afficher" name="boutonAfficherEDTDate" />
 				   		</p>

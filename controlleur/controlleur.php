@@ -25,11 +25,11 @@ function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situ
 	updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde);
 }
 
-function ctlnouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye){
+function ctlnouveauRendezVous($date,$heure,$id,$NSS,$intitule,$compteRendu,$suivi,$paye){
 	if(crenauLibre($id,$date,$heure)){
-		nouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$paye);
+		nouveauRendezVous($date,$heure,$id,$NSS,$intitule,$compteRendu,$suivi,$paye);
 	}else{
-		echo'Désolé le créneau souhaité n\'est pas libre';
+		echo'<p>Désolé le créneau souhaité n\'est pas libre</p>';
 	}
 }
 
