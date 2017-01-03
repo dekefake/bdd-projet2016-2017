@@ -28,7 +28,8 @@ function nouveauRendezVous($date,$heure,$ID,$NSS,$intitule,$compteRendu,$suivi,$
 	}
 	try{
 		$connexion=getConnect();
-		$resultat=$connexion->query("INSERT INTO `Rendez-vous` VALUES('".$date."','".$heure."','".$ID."','".$NSS."','".$intitule."','".$compteRendu."','".$suivi."','".$paye."')");
+		$requete="INSERT INTO `Rendez-vous` VALUES('$date','$heure','$ID','$NSS','$intitule','$compteRendu','$suivi','$paye')";
+		$resultat=$connexion->query($requete);
 		$resultat->closeCursor();
 	}catch (Exception $e){
 		afficherErreur($e);
