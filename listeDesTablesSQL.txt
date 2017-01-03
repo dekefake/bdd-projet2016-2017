@@ -32,4 +32,4 @@ CREATE TABLE `mvcprojet`.`Actes` ( `Intitule` TEXT NOT NULL , `Specialite` TEXT 
 
 Pour creer la table des rdv : 
 
-CREATE TABLE `mvcprojet`.`RendezVous` ( `Date` DATE NOT NULL , `Heure` TIME NOT NULL , `MedecinID` INT NOT NULL , `ClientNSS` BIGINT NOT NULL , `Paye` BOOLEAN NOT NULL , `Intitule` TEXT NOT NULL , `CompteRendu` TEXT NOT NULL , `Suivi` TEXT NOT NULL ) ENGINE = InnoDB;
+CREATE TABLE `mvcprojet`.`Rendez-vous` ( `Date` DATE NOT NULL , `Heure` TIME NOT NULL , `MedecinID` INT NOT NULL , `ClientNSS` BIGINT NOT NULL , `Paye` BOOLEAN NOT NULL , `Intitule` TEXT NOT NULL , `CompteRendu` TEXT NOT NULL , `Suivi` TEXT NOT NULL ) ENGINE = InnoDB;
