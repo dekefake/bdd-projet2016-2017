@@ -13,6 +13,14 @@ function ctlLogin($pseudo,$password){
 		afficherErreur($e);
 	}
 }
+
+function ctlAjouterMedecin($login,$mdp,$categorie,$specialite){
+	nouveauMedecin($login,$mdp,$categorie,$specialite);
+}
+
+function ctlAjouterEmploye($login,$mdp,$categorie){
+	nouvelEmploye($login,$mdp,$categorie);
+}
 function ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde){
 	updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde);
 }

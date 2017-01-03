@@ -12,10 +12,20 @@
 		$resultat->closeCursor();
 	}
 
-	function nouvelEmploye($login,$mdp,$categorie,$specialite){
+	function nouveauMedecin($login,$mdp,$categorie,$specialite){
 		try{
 			$connexion=getConnect();
 			$resultat=$connexion->query("INSERT INTO Employes VALUES('','".$login."','".$mdp."','".$categorie."','".$specialite."')");
+		}catch (Exception $e){
+			afficherErreur($e); //FAIRE LA METHODE 
+		}
+		$resultat->closeCursor();
+	}
+
+	function nouvelEmploye($login,$mdp,$categorie){
+		try{
+			$connexion=getConnect();
+			$resultat=$connexion->query("INSERT INTO Employes VALUES('','".$login."','".$mdp."','".$categorie."','')");
 		}catch (Exception $e){
 			afficherErreur($e); //FAIRE LA METHODE 
 		}

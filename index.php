@@ -9,8 +9,7 @@ try{
 		if(ctlLogin($pseudo,$motdepasse)){
 			if(isset($_POST['modifClient'])){
 				modifClient($_POST['nssModif'],$pseudo,$motdepasse);
-			}$
-
+			}
 
 			if(isset($_POST['ajouterRDV'])){
 				$date = $_POST['newDate'];
@@ -58,7 +57,9 @@ try{
 				$solde = $_POST['modifSoldeClient'];
 				ctlUpdateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profesion,$situationfamiliale,$nss,$solde);
 			}
-			if(isset($_POST['logOut'])) ctlAccueil();
+			if(isset($_POST['logOut'])){
+				ctlAccueil();
+			}
 
 			if(isset($_POST['boutonCreerActe'])){
 				$intitule = $_POST['intitule'];
@@ -66,7 +67,20 @@ try{
 				$prix = $_POST['prix'];
 				$consigne = $_POST['consigne'];
 				ctlCreerActe($intitule,$categorie,$prix,$consigne);
-			}			
+			}
+
+			if(isset($_POST['boutonAjouterLogin'])){
+				$log = $_POST['nvpseudo'];
+				$pass = $_POST['nvmdp'];
+				$categorie = $_POST['nvcategorie'];
+				if($categorie=='Medecin'){
+					$specialite = $_POST['nvspecialite'];
+					ctlAjouterMedecin($log,$pass,$categorie,$specialite);
+				}else{
+					ctlAjouterEmploye($log,$pass,$categorie);
+				}
+			}	
+
 			if(isset($_POST['boutonAjouterClient'])){
 				$nom = $_POST['nvNomClient'];
 				$prenom = $_POST['nvPrenomClient'];
@@ -79,27 +93,26 @@ try{
 				$nss = $_POST['nvNSSClient'];
 				$solde = $_POST['nvSoldeClient'];
 				ctlAjouterClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$sf,$nss,$solde);
-				}
-				if(isset($_POST['synthesePatient'])){
-					$nss = $_POST['nssSynthese'];
-					try{
-						$patient = getClient($nss);
-						$historique = getHistoriqueClient($nss);
-						CtlAfficherSynthese($patient,$historique);
-					}catch(Exception $e){
-						afficherErreurAgent($e);
-					}
-				}
-				ctlBonnePage($pseudo,$motdepasse);
-			}else{
-				ctlAccueil();
-				echo 'Mot de passe incorrect.';
 			}
-		}else{
-		ctlAccueil();
-	}
-}
-catch(Exception $e){
 
+			if(isset($_POST['synthesePatient'])){
+				$nss = $_POST['nssSynthese'];
+				try{
+					$patient = getClient($nss);
+					$historique = getHistoriqueClient($nss);
+					CtlAfficherSynthese($patient,$historique);
+				}catch(Exception $e){
+					afficherErreurAgent($e);
+				}
+			}
+			ctlBonnePage($pseudo,$motdepasse);
+		}else{
+			ctlAccueil();
+			echo 'Mot de passe incorrect.';
+	}else{
+	ctlAccueil();
+}catch(Exception $e){
+	ctlAccueil();
+	echo '<p>Erreur</p>';
 }
 
