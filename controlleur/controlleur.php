@@ -13,6 +13,13 @@ function ctlLogin($pseudo,$password){
 		afficherErreur($e);
 	}
 }
+function ctlDepot($nss,$montant){
+	if($montant<0){
+		echo '<p> Désolé le montant est incorect...</p>'
+	}else{
+		depot($nss,$montant);
+	}
+}
 
 function ctlAjouterMedecin($login,$mdp,$categorie,$specialite){
 	nouveauMedecin($login,$mdp,$categorie,$specialite);

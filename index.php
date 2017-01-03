@@ -11,6 +11,13 @@ try{
 				modifClient($_POST['nssModif'],$pseudo,$motdepasse);
 			}
 
+			if(isset($_POST['depot'])){
+				$nss = $_POST['depotNSS'];
+				$montant = $_POST['depotMontant'];
+				ctlDepot($nss,$montant);
+			}
+
+
 			if(isset($_POST['ajouterRDV'])){
 				$date = $_POST['newDate'];
 				$heure = $_POST['newHeure'];

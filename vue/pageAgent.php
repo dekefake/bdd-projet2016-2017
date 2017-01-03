@@ -123,6 +123,28 @@
 	   	</fieldset>
 	</form>
 
+	<form name="choix" id="monForm5" action="#" method="post">
+	   	<fieldset>
+	   		<legend>Faire un Depot </legend>
+
+	   		
+		   	<p>
+		    <label for="nss">NSS du patient</label>
+		    <input type="number" name="depotNSS"  id="depotNSS" /> 
+		    </p>
+		    <p>
+		     <label for="montant"> Montant</label>
+		    <input type="number" name="depotMontant" id="depotMontant" /> 
+
+       		</p>
+       		
+       		<p>
+	   			<input type="submit" value="depot" name="depot" id="depot" />
+	   		</p>
+	   		
+	   	</fieldset>
+	</form>
+
 
 		
 		<form name="logout" action="#" method="post">

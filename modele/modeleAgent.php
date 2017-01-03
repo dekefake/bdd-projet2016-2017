@@ -12,6 +12,25 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 		exit($e->getMessage());
 	}
 }
+
+function depot($nss,$montant){
+	try{
+		$connexion=getConnect();
+		$requete="SELECT Solde FROM Clients WHERE  ClientNSS='$nss'"
+		$resultat=$connexion->query($requete);
+		while ($donnees = $resultat->fetch()){
+		$nvSolde=$donnees['Solde']+$montant;
+		}
+		$requete="UPDATE Clients SET Solde='$nvmontant' WHERE ClientNSS='$nss'";
+		$resultat2=$connexion->query($requete);
+		$resultat->closeCursor();
+		$resultat2->closeCursor();
+	}catch{
+		exit($e->getMessage());
+	}
+
+}
+
 function afficherEDTNom($nom){
 	require_once ('modele/modeleMedecin.php');
 	echo '<p> Voici l emploi du temps du Dr. '.$nom.' :<br>';
