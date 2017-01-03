@@ -6,7 +6,6 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 		$requete="INSERT INTO Clients VALUES('".$nom."','".$prenom."','".$dateNaissance."','".$adresse."','".$numTel."','".$mail."','".$profession."','".$situationFamiliale."','".$clientNSS."','".$solde."')";
 		$resultat=$connexion->query($requete);
 		$resultat->closeCursor();
-
 	}
 	catch(Exception $e){
 		exit($e->getMessage());
@@ -18,7 +17,7 @@ function afficherEDTNom($nom){
 	try{
 		$connexion=getConnect();
 		$id= getID($nom);
-		$requete=("SELECT * FROM `Rendez-vous` WHERE ID='".$id."'"); // Un tiret dans le nom de la table -> mettre des quotes du 7 (`````) sinon -> erreur SQL
+		$requete=("SELECT * FROM `Rendez-vous` WHERE ID=$id"); // Un tiret dans le nom de la table -> mettre des quotes du 7 (`````) sinon -> erreur SQL
 		$resultat=$connexion->query($requete);
 		while ($donnees = $resultat->fetch()){
 			echo 'Date :'.$donnees['Date'] . '<br />';
@@ -28,23 +27,20 @@ function afficherEDTNom($nom){
 			echo 'CompteRendu :'.$donnees['CompteRendu']. '<br />';
 			echo 'Suivi :'.$donnees['Suivi']. '<br />';
 			echo '<br />';
-
 		}
 		$resultat->closeCursor();
 	}
 	catch(Exception $e){
 		exit($e->getMessage());
 	}
-
 }
 function afficherEDTDate($Date){
 	
 }
-
 function updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$situationFamiliale,$nss,$solde){
 	try{
 		$connexion=getConnect();
-		$requete="UPDATE Clients SET Nom='".$nom."', Prenom='".$prenom."', DateNaissance='".$date."', Adresse='".$adresse."', NumTel='".$tel."', Mail='".$mail."', Profession='".$profession."', SituationFamiliale='".$situationFamiliale."', ClientNSS='".$nss."', Solde='".$solde"'." WHERE ClientNSS=".$nss;
+		$requete="UPDATE Clients SET Nom='$nom', Prenom='$prenom', DateNaissance='$date', Adresse='$adresse', NumTel='$tel', Mail='$mail', Profession='$profession', SituationFamiliale='$situationFamiliale', ClientNSS='$nss', Solde='$solde' WHERE ClientNSS='$nss'";
 		$resultat=$connexion->query($requete);
 		$resultat->closeCursor();
 	}
@@ -52,11 +48,10 @@ function updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$situat
 		exit($e->getMessage());
 	}
 }
-
 function getClient($nss){
 	try{
 		$connexion=getConnect();
-		$resultat=$connexion->query("SELECT * FROM Clients WHERE ClientNSS='".$nss."'");
+		$resultat=$connexion->query("SELECT * FROM Clients WHERE ClientNSS='$nss'");
 	}catch(Exception $e){
 		afficherErreur($e);
 	}
@@ -66,11 +61,10 @@ function getClient($nss){
 	$resultat->closeCursor();
 	return($client);
 }
-
 function getNssClient($nom,$dateNaissance){
 	try{
 		$connexion=getConnect();
-		$resultat=$connexion->query("SELECT * FROM Clients WHERE Nom='".$nom."' AND dateNaissance='".$dateNaissance."'");
+		$resultat=$connexion->query("SELECT * FROM Clients WHERE Nom='$nom' AND dateNaissance='dateNaissance'");
 	}catch(Exception $e){
 		afficherErreur($e);
 	}
@@ -81,7 +75,6 @@ function getNssClient($nom,$dateNaissance){
 	$resultat->closeCursor();
 	return($client->ClientNSS);
 }
-
 function getHistoriqueClient($nss){
 	try{
 		$connexion=getConnect();
@@ -94,7 +87,6 @@ function getHistoriqueClient($nss){
 	$resultat->closeCursor();
 	return($historique);
 }
-
 function setSolde($nss,$montant){
 	try{
 		$client = get_client($nss);
@@ -110,7 +102,6 @@ function setSolde($nss,$montant){
 		return false;
 	}
 }
-
 function getRDVEnAttente(){
 	try{
 		$connexion=getConnect();
@@ -124,3 +115,4 @@ function getRDVEnAttente(){
 	$resultat->closeCursor();
 	return $rdv;
 }
+
