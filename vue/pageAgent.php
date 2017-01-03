@@ -101,24 +101,25 @@
 	   	<fieldset>
 	   		<legend>Afficher un planing </legend>
 
-	   		 <p>
-       			Veuillez choisir par quel méthode afficher un planing<br />
+	   		<p>
+       			Veuillez choisir par quel méthode afficher un planing
+       		<br />
 		    <input type="radio" name="type" value="nom" id="nom" /> 
 		    <label for="nom">Recherche par nom</label>
 		    <br />
-
+		    </p>
+		    <p>
 		    <input type="radio" name="type" value="date" id="date" /> 
 		    <label for="date">Recherche par date</label>
        		<br />
+       		</p>
+       		<?php
+       			echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+	   		?>
        		<p>
-	   			<input type ="choix" value="choix" name="boutonChoix" />
+	   			<input type="submit" value="Afficher" name="boutonChoix" id="boutonChoix" />
 	   		</p>
 	   		
-	   		<?php 
-			
-
-	   		//TODO
-	   		 ?>
 	   	</fieldset>
 	</form>
 

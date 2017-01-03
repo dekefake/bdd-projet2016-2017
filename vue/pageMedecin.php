@@ -77,11 +77,6 @@
 	   			<input type="submit" value="Afficher" name="boutonChoix" id="boutonChoix" />
 	   		</p>
 	   		
-	   		<?php 
-			
-
-	   		//TODO
-	   		 ?>
 	   	</fieldset>
 	</form>
 

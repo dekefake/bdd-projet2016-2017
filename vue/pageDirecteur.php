@@ -103,7 +103,31 @@
 		</fieldset>
 	</form>
 
-	//TODO Actes
+	<form name="choix" id="monForm5" action="#" method="post">
+	   	<fieldset>
+	   		<legend>Afficher un planing </legend>
+
+	   		<p>
+       			Veuillez choisir par quel méthode afficher un planing
+       		<br />
+		    <input type="radio" name="type" value="nom" id="nom" /> 
+		    <label for="nom">Recherche par nom</label>
+		    <br />
+		    </p>
+		    <p>
+		    <input type="radio" name="type" value="date" id="date" /> 
+		    <label for="date">Recherche par date</label>
+       		<br />
+       		</p>
+       		<?php
+       			echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+	   		?>
+       		<p>
+	   			<input type="submit" value="Afficher" name="boutonChoix" id="boutonChoix" />
+	   		</p>
+	   		
+	   	</fieldset>
+	</form>
 
 		//Vu comment on a fait 
 
