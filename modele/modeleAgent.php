@@ -44,7 +44,7 @@ function afficherEDTDate($Date){
 function updateClient($nom,$prenom,$date,$adresse,$tel,$mail,$profession,$situationFamiliale,$nss,$solde){
 	try{
 		$connexion=getConnect();
-		$requete="UPDATE Clients SET Nom='".$nom."', Prenom='".$prenom."', DateNaissance='".$date."', Adresse='".$adresse."', NumTel='".$tel."', Mail='".$mail."', Profession='".$profession."', SituationFamiliale='".$situationFamiliale."', ClientNSS='".$nss."', Solde='".$solde".' WHERE ClientNSS=".$nss;
+		$requete="UPDATE Clients SET Nom='".$nom."', Prenom='".$prenom."', DateNaissance='".$date."', Adresse='".$adresse."', NumTel='".$tel."', Mail='".$mail."', Profession='".$profession."', SituationFamiliale='".$situationFamiliale."', ClientNSS='".$nss."', Solde='".$solde"'." WHERE ClientNSS=".$nss;
 		$resultat=$connexion->query($requete);
 		$resultat->closeCursor();
 	}
