@@ -15,8 +15,8 @@ function nouveauClient($nom,$prenom,$dateNaissance,$adresse,$numTel,$mail,$profe
 function depot($nss,$montant){
 	try{
 		$connexion=getConnect();
-		$requete="SELECT Solde FROM Clients WHERE  ClientNSS='$nss'"
-		$resultat=$connexion->query($requete);
+		$requete="SELECT Solde FROM Clients WHERE  ClientNSS='$nss'";		
+$resultat=$connexion->query($requete);
 		while ($donnees = $resultat->fetch()){
 		$nvSolde=$donnees['Solde']+$montant;
 		}
