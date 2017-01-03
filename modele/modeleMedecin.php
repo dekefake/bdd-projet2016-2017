@@ -4,23 +4,19 @@ require_once('modele/modeleAccueil.php');
 
 function getID($pseudo){
 	try{
-		$connexion=getConnect();
-		$resultat=$connexion->query("SELECT * FROM Employes WHERE Login='".$pseudo."'");
-		$resultat->setFetchMode(PDO::FETCH_OBJ);
-		//ET LE RETURN MARIN ??
+		$employe=getEmploye($pseudo);
+		return $employe->ID;
 	}catch (Exception $e){
-		afficherErreur($e); //FAIRE LA METHODE 
+		afficherErreur($e);
 	}
 }
 
 function getPseudo ($ID){
 	try{
-		$connexion=getConnect();
-		$resultat=$connexion->query("SELECT * FROM Employes WHERE ID='".$ID."'");
-		$resultat->setFetchMode(PDO::FETCH_OBJ);
-		//ET LE RETURN MARIN ??
+		$employe=getEmploye($pseudo);
+		return $employe->Login;
 	}catch (Exception $e){
-		afficherErreur($e); //FAIRE LA METHODE 
+		afficherErreur($e); 
 	}
 }
 

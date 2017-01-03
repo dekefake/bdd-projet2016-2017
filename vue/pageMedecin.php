@@ -10,15 +10,15 @@
 	<body>
 	<h1>Page des médecins</h1>
 	<?php
-		$pseudo=$_POST['pseudo']
+		$pseudo=$_POST['pseudo'];
 		echo 'Connecté en tant que '.$pseudo.'.';
 	?>
 	
 <form name="ajouterRDV" id="ajouterRDV" action="#" method="post">
 			<fieldset>
 				<legend> Ajouter un RDV</legend>
-					<? php  
-					echo '<input type="hiden" name="idMedecin" value="'. id($pseudo).'" ';
+					<?php  
+					echo '<input type="hiden" name="idMedecin" value="'.getID($pseudo).'"';
 				 ?>
 				<p>
 					<label for="date">Date : </label>
