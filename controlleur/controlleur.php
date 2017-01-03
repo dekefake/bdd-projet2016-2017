@@ -15,8 +15,8 @@ function ctlLogin($pseudo,$password){
 }
 function ctlDepot($nss,$montant){
 	if($montant<0){
-		echo '<p> Désolé le montant est incorect...</p>'
-	}else{
+		echo '<p> Désolé le montant est incorect...</p>';	
+}else{
 		depot($nss,$montant);
 	}
 }
