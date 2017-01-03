@@ -16,15 +16,15 @@ function depot($nss,$montant){
 	try{
 		$connexion=getConnect();
 		$requete="SELECT Solde FROM Clients WHERE  ClientNSS='$nss'";		
-$resultat=$connexion->query($requete);
+		$resultat=$connexion->query($requete);
 		while ($donnees = $resultat->fetch()){
 		$nvSolde=$donnees['Solde']+$montant;
 		}
-		$requete="UPDATE Clients SET Solde='$nvmontant' WHERE ClientNSS='$nss'";
+		$requete="UPDATE Clients SET Solde='$nvSolde' WHERE ClientNSS='$nss'";
 		$resultat2=$connexion->query($requete);
 		$resultat->closeCursor();
 		$resultat2->closeCursor();
-	}catch{
+	}catch(Exception $e){
 		exit($e->getMessage());
 	}
 

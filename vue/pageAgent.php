@@ -135,7 +135,9 @@
 		    <p>
 		     <label for="montant"> Montant</label>
 		    <input type="number" name="depotMontant" id="depotMontant" /> 
-
+		    <?php
+       		echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+	   		?>
        		</p>
        		
        		<p>

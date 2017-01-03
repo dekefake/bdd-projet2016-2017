@@ -69,8 +69,11 @@
 	   			<label for="Consigne">Consigne : </label>
        			<input type="textareanc" name="consigne" id="consigne" required />	
 	   		</p>
+	   		<?php
+       			echo '<p><input type="hidden" name="pseudo" id="pseudo" value="'.$pseudo.'" /><input type="hidden" name="motdepasse" id="motdepasse" value="'.$motdepasse.'" /></p>'
+	   		?>
 	   		<p>
-	   			<input type ="submit" value="Créer" name="boutonCreerActe" /> />	
+	   			<input type ="submit" value="Créer" name="boutonCreerActe" /> 	
 	   		</p>
 		</fieldset>
 	</form>
@@ -129,16 +132,7 @@
 	   	</fieldset>
 	</form>
 
-		//Vu comment on a fait 
-
-	<form name="modifier" id="monForm3" action="#" method="post">
-	   	<fieldset>
-	   		<legend>Créer,modifier ou supprimer un element a fournir</legend>
-	   		
-	   				<!-- //TODO pour chaques specialité afficher un texte-->
-	   		
-		</fieldset>
-	</form>
+	
 
 
 	<form name="modifier" id="monForm4" action="#" method="post">
@@ -150,5 +144,9 @@
 		</fieldset>
 	</form>
 
+	<form name="logout" action="#" method="post">
+			<input type ="submit" value="Déconnexion" name="logOut" />
+		</form>
+		
 	</body>
 </html>

@@ -80,6 +80,10 @@
 	   	</fieldset>
 	</form>
 
+	<form name="logout" action="#" method="post">
+			<input type ="submit" value="Déconnexion" name="logOut" />
+		</form>
+
 	</body>
 
 </html>
