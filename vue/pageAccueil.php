@@ -24,7 +24,8 @@
 		   			<input type="reset" value="ToutEffacer" name="ToutEffacer" />
 		   		</p>
 				</form>
-			</fieldset>
+			</fieldset>*
+		<p> <a href="https://1drv.ms/w/s!AgImEV58WkvDgotql87BDvAHfgTrXQ"> Le rapport de l'équipe de developement </a></p>
 
 	<?php
 		echo $contenu;
